@@ -1,0 +1,33 @@
+H:\Users\biaman\source\repos\WindowsFormsApp5\WindowsFormsApp5\bin\Debug\WindowsFormsApp5.exe
+H:\Users\biaman\source\repos\WindowsFormsApp5\WindowsFormsApp5\bin\Debug\WindowsFormsApp5.pdb
+H:\Users\biaman\source\repos\WindowsFormsApp5\WindowsFormsApp5\obj\Debug\WindowsFormsApp5.csprojResolveAssemblyReference.cache
+H:\Users\biaman\source\repos\WindowsFormsApp5\WindowsFormsApp5\obj\Debug\WindowsFormsApp5.Form1.resources
+H:\Users\biaman\source\repos\WindowsFormsApp5\WindowsFormsApp5\obj\Debug\WindowsFormsApp5.Properties.Resources.resources
+H:\Users\biaman\source\repos\WindowsFormsApp5\WindowsFormsApp5\obj\Debug\WindowsFormsApp5.csproj.GenerateResource.cache
+H:\Users\biaman\source\repos\WindowsFormsApp5\WindowsFormsApp5\obj\Debug\WindowsFormsApp5.csproj.CoreCompileInputs.cache
+H:\Users\biaman\source\repos\WindowsFormsApp5\WindowsFormsApp5\obj\Debug\WindowsFormsApp5.exe
+H:\Users\biaman\source\repos\WindowsFormsApp5\WindowsFormsApp5\obj\Debug\WindowsFormsApp5.pdb
+D:\Normal Trainning\WindowsFormsApp5\WindowsFormsApp5\bin\Debug\WindowsFormsApp5.exe.config
+D:\Normal Trainning\WindowsFormsApp5\WindowsFormsApp5\obj\Debug\WindowsFormsApp5.exe
+D:\Normal Trainning\WindowsFormsApp5\WindowsFormsApp5\obj\Debug\WindowsFormsApp5.pdb
+D:\Normal Trainning\WindowsFormsApp5\WindowsFormsApp5\bin\Debug\WindowsFormsApp5.exe
+D:\Normal Trainning\WindowsFormsApp5\WindowsFormsApp5\bin\Debug\WindowsFormsApp5.pdb
+D:\Normal Trainning\WindowsFormsApp5\WindowsFormsApp5\bin\Debug\Visionscape.Display.Setup.dll
+D:\Normal Trainning\WindowsFormsApp5\WindowsFormsApp5\bin\Debug\Visionscape.dll
+D:\Normal Trainning\WindowsFormsApp5\WindowsFormsApp5\bin\Debug\Visionscape.Display.Core.dll
+D:\Normal Trainning\WindowsFormsApp5\WindowsFormsApp5\bin\Debug\Visionscape.Display.Image.dll
+D:\Normal Trainning\WindowsFormsApp5\WindowsFormsApp5\bin\Debug\Visionscape.Communications.dll
+D:\Normal Trainning\WindowsFormsApp5\WindowsFormsApp5\bin\Debug\Visionscape.Steps.dll
+D:\Normal Trainning\WindowsFormsApp5\WindowsFormsApp5\bin\Debug\stdole.dll
+D:\Normal Trainning\WindowsFormsApp5\WindowsFormsApp5\bin\Debug\Visionscape.Devices.dll
+D:\Normal Trainning\WindowsFormsApp5\WindowsFormsApp5\bin\Debug\Visionscape.Display.Setup.xml
+D:\Normal Trainning\WindowsFormsApp5\WindowsFormsApp5\bin\Debug\Visionscape.Display.Image.xml
+D:\Normal Trainning\WindowsFormsApp5\WindowsFormsApp5\bin\Debug\Visionscape.Communications.xml
+D:\Normal Trainning\WindowsFormsApp5\WindowsFormsApp5\obj\Debug\WindowsFormsApp5.csprojResolveAssemblyReference.cache
+D:\Normal Trainning\WindowsFormsApp5\WindowsFormsApp5\obj\Debug\WindowsFormsApp5.Form1.resources
+D:\Normal Trainning\WindowsFormsApp5\WindowsFormsApp5\obj\Debug\WindowsFormsApp5.Properties.Resources.resources
+D:\Normal Trainning\WindowsFormsApp5\WindowsFormsApp5\obj\Debug\WindowsFormsApp5.csproj.GenerateResource.Cache
+D:\Normal Trainning\WindowsFormsApp5\WindowsFormsApp5\obj\Debug\WindowsFormsApp5.Window2cs.resources
+D:\Normal Trainning\WindowsFormsApp5\WindowsFormsApp5\obj\Debug\WindowsFormsApp5.Form2.resources
+D:\Normal Trainning\WindowsFormsApp5\WindowsFormsApp5\obj\Debug\WindowsFormsApp5.Windows1cs.resources
+D:\Normal Trainning\WindowsFormsApp5\WindowsFormsApp5\obj\Debug\WindowsFormsApp5.Form3.resources

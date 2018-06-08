@@ -1,0 +1,370 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://Aumex.org/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://Aumex.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://Aumex.org/">
+      <s:element name="SendProduct">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="products" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SendProductResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SendProductResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Connection">
+        <s:complexType />
+      </s:element>
+      <s:element name="ConnectionResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ConnectionResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="xxcc_work_num_f">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="factory" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="employeeId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="processId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="lineNum" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="xxcc_work_num_fResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="xxcc_work_num_fResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetPartnum">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="productId" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetPartnumResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetPartnumResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="fun">
+        <s:complexType />
+      </s:element>
+      <s:element name="funResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="funResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="XXCC_LOT_PC_F">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="factory" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="productId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="processId" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="XXCC_LOT_PC_FResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="XXCC_LOT_PC_FResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SendBasicMessage">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="proId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="lineId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="lineNum" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="processId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="memberId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="productId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="productNum" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SendBasicMessageResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SendBasicMessageResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SendBarcodes">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="barcode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="productId" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SendBarcodesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SendBarcodesResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="SendProductSoapIn">
+    <wsdl:part name="parameters" element="tns:SendProduct" />
+  </wsdl:message>
+  <wsdl:message name="SendProductSoapOut">
+    <wsdl:part name="parameters" element="tns:SendProductResponse" />
+  </wsdl:message>
+  <wsdl:message name="ConnectionSoapIn">
+    <wsdl:part name="parameters" element="tns:Connection" />
+  </wsdl:message>
+  <wsdl:message name="ConnectionSoapOut">
+    <wsdl:part name="parameters" element="tns:ConnectionResponse" />
+  </wsdl:message>
+  <wsdl:message name="xxcc_work_num_fSoapIn">
+    <wsdl:part name="parameters" element="tns:xxcc_work_num_f" />
+  </wsdl:message>
+  <wsdl:message name="xxcc_work_num_fSoapOut">
+    <wsdl:part name="parameters" element="tns:xxcc_work_num_fResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetPartnumSoapIn">
+    <wsdl:part name="parameters" element="tns:GetPartnum" />
+  </wsdl:message>
+  <wsdl:message name="GetPartnumSoapOut">
+    <wsdl:part name="parameters" element="tns:GetPartnumResponse" />
+  </wsdl:message>
+  <wsdl:message name="funSoapIn">
+    <wsdl:part name="parameters" element="tns:fun" />
+  </wsdl:message>
+  <wsdl:message name="funSoapOut">
+    <wsdl:part name="parameters" element="tns:funResponse" />
+  </wsdl:message>
+  <wsdl:message name="XXCC_LOT_PC_FSoapIn">
+    <wsdl:part name="parameters" element="tns:XXCC_LOT_PC_F" />
+  </wsdl:message>
+  <wsdl:message name="XXCC_LOT_PC_FSoapOut">
+    <wsdl:part name="parameters" element="tns:XXCC_LOT_PC_FResponse" />
+  </wsdl:message>
+  <wsdl:message name="SendBasicMessageSoapIn">
+    <wsdl:part name="parameters" element="tns:SendBasicMessage" />
+  </wsdl:message>
+  <wsdl:message name="SendBasicMessageSoapOut">
+    <wsdl:part name="parameters" element="tns:SendBasicMessageResponse" />
+  </wsdl:message>
+  <wsdl:message name="SendBarcodesSoapIn">
+    <wsdl:part name="parameters" element="tns:SendBarcodes" />
+  </wsdl:message>
+  <wsdl:message name="SendBarcodesSoapOut">
+    <wsdl:part name="parameters" element="tns:SendBarcodesResponse" />
+  </wsdl:message>
+  <wsdl:portType name="WebService1Soap">
+    <wsdl:operation name="SendProduct">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">发送产品编号</wsdl:documentation>
+      <wsdl:input message="tns:SendProductSoapIn" />
+      <wsdl:output message="tns:SendProductSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Connection">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">检验连接</wsdl:documentation>
+      <wsdl:input message="tns:ConnectionSoapIn" />
+      <wsdl:output message="tns:ConnectionSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="xxcc_work_num_f">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">檢測用戶輸入的員工工號是否是该厂区</wsdl:documentation>
+      <wsdl:input message="tns:xxcc_work_num_fSoapIn" />
+      <wsdl:output message="tns:xxcc_work_num_fSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPartnum">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">檢測產品批號是否正確，並返回料號</wsdl:documentation>
+      <wsdl:input message="tns:GetPartnumSoapIn" />
+      <wsdl:output message="tns:GetPartnumSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="fun">
+      <wsdl:input message="tns:funSoapIn" />
+      <wsdl:output message="tns:funSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="XXCC_LOT_PC_F">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">检查批号当前批号是否属于该制程</wsdl:documentation>
+      <wsdl:input message="tns:XXCC_LOT_PC_FSoapIn" />
+      <wsdl:output message="tns:XXCC_LOT_PC_FSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SendBasicMessage">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">傳送廠號，線，線別，製程，工號，批號，料號</wsdl:documentation>
+      <wsdl:input message="tns:SendBasicMessageSoapIn" />
+      <wsdl:output message="tns:SendBasicMessageSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SendBarcodes">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">發送Barcode數據</wsdl:documentation>
+      <wsdl:input message="tns:SendBarcodesSoapIn" />
+      <wsdl:output message="tns:SendBarcodesSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="WebService1Soap" type="tns:WebService1Soap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="SendProduct">
+      <soap:operation soapAction="http://Aumex.org/SendProduct" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Connection">
+      <soap:operation soapAction="http://Aumex.org/Connection" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="xxcc_work_num_f">
+      <soap:operation soapAction="http://Aumex.org/xxcc_work_num_f" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPartnum">
+      <soap:operation soapAction="http://Aumex.org/GetPartnum" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="fun">
+      <soap:operation soapAction="http://Aumex.org/fun" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="XXCC_LOT_PC_F">
+      <soap:operation soapAction="http://Aumex.org/XXCC_LOT_PC_F" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendBasicMessage">
+      <soap:operation soapAction="http://Aumex.org/SendBasicMessage" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendBarcodes">
+      <soap:operation soapAction="http://Aumex.org/SendBarcodes" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="WebService1Soap12" type="tns:WebService1Soap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="SendProduct">
+      <soap12:operation soapAction="http://Aumex.org/SendProduct" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Connection">
+      <soap12:operation soapAction="http://Aumex.org/Connection" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="xxcc_work_num_f">
+      <soap12:operation soapAction="http://Aumex.org/xxcc_work_num_f" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPartnum">
+      <soap12:operation soapAction="http://Aumex.org/GetPartnum" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="fun">
+      <soap12:operation soapAction="http://Aumex.org/fun" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="XXCC_LOT_PC_F">
+      <soap12:operation soapAction="http://Aumex.org/XXCC_LOT_PC_F" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendBasicMessage">
+      <soap12:operation soapAction="http://Aumex.org/SendBasicMessage" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendBarcodes">
+      <soap12:operation soapAction="http://Aumex.org/SendBarcodes" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="WebService1">
+    <wsdl:port name="WebService1Soap" binding="tns:WebService1Soap">
+      <soap:address location="http://127.0.0.1:8008/WebService1.asmx" />
+    </wsdl:port>
+    <wsdl:port name="WebService1Soap12" binding="tns:WebService1Soap12">
+      <soap12:address location="http://127.0.0.1:8008/WebService1.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
