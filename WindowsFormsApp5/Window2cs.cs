@@ -25,17 +25,15 @@ namespace WindowsFormsApp5
         #region 實例
         HuaTongWebReference1.WebService1 hWebService = null;
         Form2 mainForm;
-        Thread tWeb1;
-        Thread tWeb2;
-        Thread tWeb3;
+       
         //Thread tProduct;
-        Thread tWebService;
+        
         Form3 form3;
         //bool threadFlag = false;
         static AutoResetEvent myResetEvent = new AutoResetEvent(false);
         static AutoResetEvent ChangeEvent = new AutoResetEvent(false);
         //bean声明
-        MessageModel msg = null;
+        
         public delegate void circleIngnore();
         //string checkString;
         MessageModel mModel;
@@ -59,13 +57,13 @@ namespace WindowsFormsApp5
                         {
                            s += Convert.ToChar(buffer[i]);
                         }
-                        
-                        msg.ProductCode = s;
+
+                        mModel.ProductCode = s;
                     }
                     
                     //msg.ProductCode = byToHexStr(buffer, len);
-                    textBox2.Text = msg.ProductCode;
-                    textBox4.Text += "Barcode:"+ msg.ProductCode + "\r\n";
+                    textBox2.Text = mModel.ProductCode;
+                    textBox4.Text += "Barcode:"+ mModel.ProductCode + "\r\n";
                     if(time1Num!=0)
                     {
                         time1Num--;
@@ -73,8 +71,8 @@ namespace WindowsFormsApp5
                     timer1.Enabled = true;
                 }
                 MiscroSP.DiscardInBuffer();
-                textBox1.Text = "Barcode:" + msg.ProductCode;
-                msg.Productions = msg.ProductCode;
+                textBox1.Text = "Barcode:" + mModel.ProductCode;
+                mModel.Productions = mModel.ProductCode;
                 SendProducts();
             }
             catch (Exception ee)
@@ -88,22 +86,22 @@ namespace WindowsFormsApp5
         {
             try
             {                
-                if (msg.IsConnect == true)
+                if (mModel.IsConnect == true)
                 {
-                    if (msg.IsSave == false)
+                    if (mModel.IsSave == false)
                     {
                         //tWebService = new Thread(new ThreadStart(SendToWeb));
                         //tWebService.Start();
                         SendToWeb();
-                        if (msg.IsSave == true)
+                        if (mModel.IsSave == true)
                         {
                             textBox4.Text += "網絡中断，數據將保存在本地" + "\r\n";
                             SaveProducts();
                         }
                     }
-                    else if (msg.IsSave == true)
+                    else if (mModel.IsSave == true)
                     {
-                        msg.IsConnect = false;
+                        mModel.IsConnect = false;
                         textBox4.Text += "網絡中断，數據將保存在本地" + "\r\n";
                         SaveProducts();
                     }
@@ -127,7 +125,7 @@ namespace WindowsFormsApp5
             try
             {
                 hWebService.Connection();
-                if (!msg.Isform3Alive)
+                if (!mModel.Isform3Alive)
                 {
                     form3 = new Form3(this);
                     form3.Show();
@@ -150,16 +148,16 @@ namespace WindowsFormsApp5
             //Openform3();        
         }
 
-        private void ConnectStatus()
+        public void ConnectStatus()
         {
-            if(msg.IsConnect)
+            if(mModel.IsConnect)
             { 
             textBox4.AppendText("已连接至服务器\r\n");
             label1.ForeColor = Color.Green;
             label1.Text = "已连接";
             mainForm.SetToolstripValue();
             }
-            else if(!msg.IsConnect)
+            else if(!mModel.IsConnect)
             {
                 textBox4.AppendText("沒有網絡，數據將保存在本地" + "\r\n");               
                 label1.ForeColor = Color.Red;
@@ -173,29 +171,29 @@ namespace WindowsFormsApp5
         public void SaveProducts()
         {         
             string pathtime = DateTime.Now.ToString("yyyy-MM-dd");
-            if (msg.ProductId != msg.ProductId2) { 
-            string path = string.Format("D:\\Products\\{0}\\{1}基本信息.txt", pathtime, msg.ProductId);
-            msg.ProductId2 = msg.ProductId;
+            if (mModel.ProductId != mModel.ProductId2) { 
+            string path = string.Format("D:\\Products\\{0}\\{1}基本信息.txt", pathtime, mModel.ProductId);
+                mModel.ProductId2 = mModel.ProductId;
             FileStream fs = new FileStream(path, FileMode.Append, FileAccess.Write);
             StreamWriter textWrite = new StreamWriter(fs, Encoding.UTF8);
-            textWrite.Write(msg.Factory + "," + msg.LineNumber + "," + msg.LineId + "," + msg.ProcessId);
+            textWrite.Write(mModel.Factory + "," + mModel.LineNumber + "," + mModel.LineId + "," + mModel.ProcessId);
             textWrite.Close();
             fs.Close();
             }
-            string path1 = string.Format("D:\\Products\\{0}\\{1}Barcode.txt", pathtime, msg.ProductId);
+            string path1 = string.Format("D:\\Products\\{0}\\{1}Barcode.txt", pathtime, mModel.ProductId);
             string time = DateTime.Now.ToString("HH_mm_ss_fff");
            
             FileStream fs1 = new FileStream(path1, FileMode.Append, FileAccess.Write);
             StreamWriter textWrite1 = new StreamWriter(fs1, Encoding.UTF8);
-            textWrite1.Write(time + "\t" + msg.Productions + "\r\n");
+            textWrite1.Write(time + "\t" + mModel.Productions + "\r\n");
             textWrite1.Close();            
             fs1.Close();
         }
         public void SendToWeb()
         {
             try {
-                string s = hWebService.SendBarcodes(mModel.ProductCode, mModel.ProductId);               
-                msg.IsSave = false;
+                string s = hWebService.SendBarcodes(mModel.ProductCode, mModel.ProductId);
+                mModel.IsSave = false;
                 if(s=="OK")
                 {
                     //textBox4.Text += "匹配通過" + "\r\n";
@@ -206,8 +204,8 @@ namespace WindowsFormsApp5
                 }
             }catch(Exception ex)
             {
-                msg.IsSave = true;
-                msg.IsConnect = false;
+                mModel.IsSave = true;
+                mModel.IsConnect = false;
             }
            //checkString = PostWebRequest( msg.Productions);
         }
@@ -269,6 +267,7 @@ namespace WindowsFormsApp5
                     if(MiscroSP.IsOpen)
                     { 
                     textBox4.Text = "讀碼器斷開連接了" + "\r\n";
+                        button1.Visible = true;
                     LightSP.Write(openByte, 0, openByte.Length);
                     time1Num = 0;
                     }
@@ -289,6 +288,7 @@ namespace WindowsFormsApp5
             {
                 timer2.Enabled = false;
                 textBox4.Text = "報警燈斷開連接了" + "\r\n";
+                button2.Visible = true;
                 //LightSP.Write(openByte, 0, openByte.Length);
                 time2Num = 0;
             }
@@ -296,28 +296,48 @@ namespace WindowsFormsApp5
         private void Window2cs_Load(object sender, EventArgs e)
         {
             hWebService = new HuaTongWebReference1.WebService1();
-            msg = MessageModel.instance();         
             mModel = MessageModel.instance();
-            msg.TimerFlag1 = false;
-            msg.TimerFlag2 = false;
-            msg.TimerFlag3 = false;
-            msg.Isform3Alive = false;
-            msg.IsSave = false;
+            mModel.TimerFlag1 = false;
+            mModel.TimerFlag2 = false;
+            mModel.TimerFlag3 = false;
+            mModel.Isform3Alive = false;
+            mModel.IsSave = false;
             string pathtime = DateTime.Now.ToString("yyyy-MM-dd");
-            if (!MiscroSP.IsOpen)
-            {
-                MiscroSP.Open();
-            }
-            if(!LightSP.IsOpen)
-            {
-                LightSP.Open();
-            }
-            ConnectStatus();
+            ConnectToSerip();
             if (!Directory.Exists("D:\\Products\\" + pathtime))
             {
                 Directory.CreateDirectory("D:\\Products\\" + pathtime);
-            }          
+            }
         }
+
+        private void ConnectToSerip()
+        {
+            try {
+                if (!MiscroSP.IsOpen)
+                {
+                    MiscroSP.Open();
+                    button1.Visible = false;
+                }
+            }
+            catch
+            {
+                button1.Visible = true;
+                textBox4.AppendText("串口COM2异常，未能正常打开读码器连接,请检查串口是否被占用,或者串口线未连接;\r\n");
+            }
+            try { 
+            if (!LightSP.IsOpen)
+            {
+                LightSP.Open();
+                    button2.Visible = false;
+            }
+            
+            }catch
+            {
+                button2.Visible = true;
+                textBox4.AppendText("串口COM1异常，未能正常打开报警灯连接,请检查串口是否被占用,或者串口线未连接;\r\n");
+            }
+        }
+
         public void TextBox4Add()
         {
             throw new ArgumentException();
@@ -362,6 +382,19 @@ namespace WindowsFormsApp5
             this.textBox4.SelectionLength = 0;
             this.textBox4.ScrollToCaret();
             //textBox4.AppendText(str);
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            try { 
+            if(!MiscroSP.IsOpen)
+            {
+                MiscroSP.Open();
+                textBox4.AppendText("读码器连接成功\r\n");
+                    button1.Visible = false;
+            }
+            }
+            catch { }
         }
     }
 }

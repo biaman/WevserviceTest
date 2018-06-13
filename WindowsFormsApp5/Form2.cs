@@ -74,8 +74,9 @@ namespace WindowsFormsApp5
                 (Screen.GetBounds(this).Height / 2) - (this.Height / 2),
                 this.Width, this.Height, BoundsSpecified.Location);
                 form2.Show();
-                groupBox3.Controls.Clear();
+                groupBox3.Controls.Clear();              
                 groupBox3.Controls.Add(form2);
+                form2.ConnectStatus();
                 setToolstrip();
                 SetToolstripValue();
 
