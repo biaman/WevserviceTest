@@ -31,3 +31,75 @@ D:\Normal Trainning\WindowsFormsApp5\WindowsFormsApp5\obj\Debug\WindowsFormsApp5
 D:\Normal Trainning\WindowsFormsApp5\WindowsFormsApp5\obj\Debug\WindowsFormsApp5.Form2.resources
 D:\Normal Trainning\WindowsFormsApp5\WindowsFormsApp5\obj\Debug\WindowsFormsApp5.Windows1cs.resources
 D:\Normal Trainning\WindowsFormsApp5\WindowsFormsApp5\obj\Debug\WindowsFormsApp5.Form3.resources
+H:\beifen\華通電子\6-4\WindowsFormsApp5\WindowsFormsApp5\bin\Debug\WindowsFormsApp5.exe.config
+H:\beifen\華通電子\6-4\WindowsFormsApp5\WindowsFormsApp5\obj\Debug\WindowsFormsApp5.exe
+H:\beifen\華通電子\6-4\WindowsFormsApp5\WindowsFormsApp5\obj\Debug\WindowsFormsApp5.pdb
+H:\beifen\華通電子\6-4\WindowsFormsApp5\WindowsFormsApp5\bin\Debug\WindowsFormsApp5.exe
+H:\beifen\華通電子\6-4\WindowsFormsApp5\WindowsFormsApp5\bin\Debug\WindowsFormsApp5.pdb
+H:\beifen\華通電子\6-4\WindowsFormsApp5\WindowsFormsApp5\bin\Debug\Visionscape.Display.Setup.dll
+H:\beifen\華通電子\6-4\WindowsFormsApp5\WindowsFormsApp5\bin\Debug\Visionscape.dll
+H:\beifen\華通電子\6-4\WindowsFormsApp5\WindowsFormsApp5\bin\Debug\Visionscape.Display.Core.dll
+H:\beifen\華通電子\6-4\WindowsFormsApp5\WindowsFormsApp5\bin\Debug\Visionscape.Display.Image.dll
+H:\beifen\華通電子\6-4\WindowsFormsApp5\WindowsFormsApp5\bin\Debug\Visionscape.Communications.dll
+H:\beifen\華通電子\6-4\WindowsFormsApp5\WindowsFormsApp5\bin\Debug\Visionscape.Steps.dll
+H:\beifen\華通電子\6-4\WindowsFormsApp5\WindowsFormsApp5\bin\Debug\stdole.dll
+H:\beifen\華通電子\6-4\WindowsFormsApp5\WindowsFormsApp5\bin\Debug\Visionscape.Devices.dll
+H:\beifen\華通電子\6-4\WindowsFormsApp5\WindowsFormsApp5\bin\Debug\Visionscape.Display.Setup.xml
+H:\beifen\華通電子\6-4\WindowsFormsApp5\WindowsFormsApp5\bin\Debug\Visionscape.Display.Image.xml
+H:\beifen\華通電子\6-4\WindowsFormsApp5\WindowsFormsApp5\bin\Debug\Visionscape.Communications.xml
+H:\beifen\華通電子\6-4\WindowsFormsApp5\WindowsFormsApp5\obj\Debug\WindowsFormsApp5.csprojResolveAssemblyReference.cache
+H:\beifen\華通電子\6-4\WindowsFormsApp5\WindowsFormsApp5\obj\Debug\WindowsFormsApp5.Form1.resources
+H:\beifen\華通電子\6-4\WindowsFormsApp5\WindowsFormsApp5\obj\Debug\WindowsFormsApp5.Form2.resources
+H:\beifen\華通電子\6-4\WindowsFormsApp5\WindowsFormsApp5\obj\Debug\WindowsFormsApp5.Form3.resources
+H:\beifen\華通電子\6-4\WindowsFormsApp5\WindowsFormsApp5\obj\Debug\WindowsFormsApp5.Properties.Resources.resources
+H:\beifen\華通電子\6-4\WindowsFormsApp5\WindowsFormsApp5\obj\Debug\WindowsFormsApp5.Window2cs.resources
+H:\beifen\華通電子\6-4\WindowsFormsApp5\WindowsFormsApp5\obj\Debug\WindowsFormsApp5.Windows1cs.resources
+H:\beifen\華通電子\6-4\WindowsFormsApp5\WindowsFormsApp5\obj\Debug\WindowsFormsApp5.csproj.GenerateResource.Cache
+D:\Normal Trainning\华通电子\6-4\WindowsFormsApp5\WindowsFormsApp5\bin\Debug\WindowsFormsApp5.exe.config
+D:\Normal Trainning\华通电子\6-4\WindowsFormsApp5\WindowsFormsApp5\obj\Debug\WindowsFormsApp5.exe
+D:\Normal Trainning\华通电子\6-4\WindowsFormsApp5\WindowsFormsApp5\obj\Debug\WindowsFormsApp5.pdb
+D:\Normal Trainning\华通电子\6-4\WindowsFormsApp5\WindowsFormsApp5\bin\Debug\WindowsFormsApp5.exe
+D:\Normal Trainning\华通电子\6-4\WindowsFormsApp5\WindowsFormsApp5\bin\Debug\WindowsFormsApp5.pdb
+D:\Normal Trainning\华通电子\6-4\WindowsFormsApp5\WindowsFormsApp5\bin\Debug\Visionscape.Display.Setup.dll
+D:\Normal Trainning\华通电子\6-4\WindowsFormsApp5\WindowsFormsApp5\bin\Debug\Visionscape.dll
+D:\Normal Trainning\华通电子\6-4\WindowsFormsApp5\WindowsFormsApp5\bin\Debug\Visionscape.Display.Core.dll
+D:\Normal Trainning\华通电子\6-4\WindowsFormsApp5\WindowsFormsApp5\bin\Debug\Visionscape.Display.Image.dll
+D:\Normal Trainning\华通电子\6-4\WindowsFormsApp5\WindowsFormsApp5\bin\Debug\Visionscape.Communications.dll
+D:\Normal Trainning\华通电子\6-4\WindowsFormsApp5\WindowsFormsApp5\bin\Debug\Visionscape.Steps.dll
+D:\Normal Trainning\华通电子\6-4\WindowsFormsApp5\WindowsFormsApp5\bin\Debug\stdole.dll
+D:\Normal Trainning\华通电子\6-4\WindowsFormsApp5\WindowsFormsApp5\bin\Debug\Visionscape.Devices.dll
+D:\Normal Trainning\华通电子\6-4\WindowsFormsApp5\WindowsFormsApp5\bin\Debug\Visionscape.Display.Setup.xml
+D:\Normal Trainning\华通电子\6-4\WindowsFormsApp5\WindowsFormsApp5\bin\Debug\Visionscape.Display.Image.xml
+D:\Normal Trainning\华通电子\6-4\WindowsFormsApp5\WindowsFormsApp5\bin\Debug\Visionscape.Communications.xml
+D:\Normal Trainning\华通电子\6-4\WindowsFormsApp5\WindowsFormsApp5\obj\Debug\WindowsFormsApp5.csprojResolveAssemblyReference.cache
+D:\Normal Trainning\华通电子\6-4\WindowsFormsApp5\WindowsFormsApp5\obj\Debug\WindowsFormsApp5.Form1.resources
+D:\Normal Trainning\华通电子\6-4\WindowsFormsApp5\WindowsFormsApp5\obj\Debug\WindowsFormsApp5.Form2.resources
+D:\Normal Trainning\华通电子\6-4\WindowsFormsApp5\WindowsFormsApp5\obj\Debug\WindowsFormsApp5.Form3.resources
+D:\Normal Trainning\华通电子\6-4\WindowsFormsApp5\WindowsFormsApp5\obj\Debug\WindowsFormsApp5.Properties.Resources.resources
+D:\Normal Trainning\华通电子\6-4\WindowsFormsApp5\WindowsFormsApp5\obj\Debug\WindowsFormsApp5.Window2cs.resources
+D:\Normal Trainning\华通电子\6-4\WindowsFormsApp5\WindowsFormsApp5\obj\Debug\WindowsFormsApp5.Windows1cs.resources
+D:\Normal Trainning\华通电子\6-4\WindowsFormsApp5\WindowsFormsApp5\obj\Debug\WindowsFormsApp5.csproj.GenerateResource.Cache
+D:\Study\huatong\WevserviceTest\WindowsFormsApp5\bin\Debug\WindowsFormsApp5.exe.config
+D:\Study\huatong\WevserviceTest\WindowsFormsApp5\obj\Debug\WindowsFormsApp5.exe
+D:\Study\huatong\WevserviceTest\WindowsFormsApp5\obj\Debug\WindowsFormsApp5.pdb
+D:\Study\huatong\WevserviceTest\WindowsFormsApp5\bin\Debug\WindowsFormsApp5.exe
+D:\Study\huatong\WevserviceTest\WindowsFormsApp5\bin\Debug\WindowsFormsApp5.pdb
+D:\Study\huatong\WevserviceTest\WindowsFormsApp5\bin\Debug\Visionscape.Display.Setup.dll
+D:\Study\huatong\WevserviceTest\WindowsFormsApp5\bin\Debug\Visionscape.dll
+D:\Study\huatong\WevserviceTest\WindowsFormsApp5\bin\Debug\Visionscape.Display.Core.dll
+D:\Study\huatong\WevserviceTest\WindowsFormsApp5\bin\Debug\Visionscape.Display.Image.dll
+D:\Study\huatong\WevserviceTest\WindowsFormsApp5\bin\Debug\Visionscape.Communications.dll
+D:\Study\huatong\WevserviceTest\WindowsFormsApp5\bin\Debug\Visionscape.Steps.dll
+D:\Study\huatong\WevserviceTest\WindowsFormsApp5\bin\Debug\stdole.dll
+D:\Study\huatong\WevserviceTest\WindowsFormsApp5\bin\Debug\Visionscape.Devices.dll
+D:\Study\huatong\WevserviceTest\WindowsFormsApp5\bin\Debug\Visionscape.Display.Setup.xml
+D:\Study\huatong\WevserviceTest\WindowsFormsApp5\bin\Debug\Visionscape.Display.Image.xml
+D:\Study\huatong\WevserviceTest\WindowsFormsApp5\bin\Debug\Visionscape.Communications.xml
+D:\Study\huatong\WevserviceTest\WindowsFormsApp5\obj\Debug\WindowsFormsApp5.csprojResolveAssemblyReference.cache
+D:\Study\huatong\WevserviceTest\WindowsFormsApp5\obj\Debug\WindowsFormsApp5.Form1.resources
+D:\Study\huatong\WevserviceTest\WindowsFormsApp5\obj\Debug\WindowsFormsApp5.Form2.resources
+D:\Study\huatong\WevserviceTest\WindowsFormsApp5\obj\Debug\WindowsFormsApp5.Form3.resources
+D:\Study\huatong\WevserviceTest\WindowsFormsApp5\obj\Debug\WindowsFormsApp5.Properties.Resources.resources
+D:\Study\huatong\WevserviceTest\WindowsFormsApp5\obj\Debug\WindowsFormsApp5.Window2cs.resources
+D:\Study\huatong\WevserviceTest\WindowsFormsApp5\obj\Debug\WindowsFormsApp5.Windows1cs.resources
+D:\Study\huatong\WevserviceTest\WindowsFormsApp5\obj\Debug\WindowsFormsApp5.csproj.GenerateResource.Cache

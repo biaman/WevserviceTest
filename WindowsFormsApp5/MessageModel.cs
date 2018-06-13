@@ -25,6 +25,7 @@ namespace WindowsFormsApp5
         private string _userId;//工號
         private string _lineId;//線
         private string _lineNumber;//線別
+        private bool isform3Alive;
         private bool timerFlag1;
         private bool timerFlag2;
         private bool timerFlag3;
@@ -246,6 +247,19 @@ namespace WindowsFormsApp5
             set
             {
                 _productId2 = value;
+            }
+        }
+
+        public bool Isform3Alive
+        {
+            get
+            {
+                return isform3Alive;
+            }
+
+            set
+            {
+                isform3Alive = value;
             }
         }
     }

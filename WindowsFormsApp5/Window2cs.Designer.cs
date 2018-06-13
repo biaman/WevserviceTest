@@ -38,9 +38,7 @@
             this.MiscroSP = new System.IO.Ports.SerialPort(this.components);
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.timer2 = new System.Windows.Forms.Timer(this.components);
-            this.button4 = new System.Windows.Forms.Button();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.button5 = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -52,8 +50,10 @@
             this.textBox4.Location = new System.Drawing.Point(544, 66);
             this.textBox4.Multiline = true;
             this.textBox4.Name = "textBox4";
+            this.textBox4.ScrollBars = System.Windows.Forms.ScrollBars.Both;
             this.textBox4.Size = new System.Drawing.Size(256, 318);
             this.textBox4.TabIndex = 25;
+            this.textBox4.TextChanged += new System.EventHandler(this.textBox4_TextChanged);
             // 
             // groupBox2
             // 
@@ -96,11 +96,13 @@
             // 
             // LightSP
             // 
+            this.LightSP.PortName = "COM3";
             this.LightSP.DataReceived += new System.IO.Ports.SerialDataReceivedEventHandler(this.LightSP_DataReceived);
             // 
             // MiscroSP
             // 
             this.MiscroSP.BaudRate = 115200;
+            this.MiscroSP.PortName = "COM2";
             this.MiscroSP.DataReceived += new System.IO.Ports.SerialDataReceivedEventHandler(this.MiscroSP_DataReceived);
             // 
             // timer1
@@ -113,42 +115,22 @@
             this.timer2.Interval = 1000;
             this.timer2.Tick += new System.EventHandler(this.timer2_Tick);
             // 
-            // button4
+            // label1
             // 
-            this.button4.Location = new System.Drawing.Point(41, 257);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(75, 23);
-            this.button4.TabIndex = 33;
-            this.button4.Text = "選擇文件";
-            this.button4.UseVisualStyleBackColor = true;
-            this.button4.Click += new System.EventHandler(this.button4_Click);
-            // 
-            // textBox5
-            // 
-            this.textBox5.BackColor = System.Drawing.SystemColors.HighlightText;
-            this.textBox5.Enabled = false;
-            this.textBox5.Location = new System.Drawing.Point(137, 259);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(184, 21);
-            this.textBox5.TabIndex = 34;
-            // 
-            // button5
-            // 
-            this.button5.Location = new System.Drawing.Point(339, 259);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(57, 21);
-            this.button5.TabIndex = 35;
-            this.button5.Text = "發送";
-            this.button5.UseVisualStyleBackColor = true;
-            this.button5.Click += new System.EventHandler(this.button5_Click);
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("宋体", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label1.ForeColor = System.Drawing.Color.Black;
+            this.label1.Location = new System.Drawing.Point(702, 29);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(98, 21);
+            this.label1.TabIndex = 36;
+            this.label1.Text = "连接状态";
             // 
             // Window2cs
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.button5);
-            this.Controls.Add(this.textBox5);
-            this.Controls.Add(this.button4);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.textBox4);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
@@ -175,8 +157,6 @@
         private System.IO.Ports.SerialPort MiscroSP;
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Timer timer2;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Label label1;
     }
 }

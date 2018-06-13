@@ -15,12 +15,17 @@ namespace WindowsFormsApp5
         {
             InitializeComponent();
         }
+        public Form3(Window2cs form):this()
+        {
+            Window = new Window2cs();
+        }
         #region 實例
         MessageModel mModel;
         HuaTongWebReference1.WebService1 hWebservice;
         bool flag1 = false;
         bool flag2 = false;
-        bool flag = true;
+        bool flag = false;
+        Window2cs Window;
         #endregion
         private void textBox1_Validated(object sender, EventArgs e)
         {
@@ -28,32 +33,35 @@ namespace WindowsFormsApp5
             {
                 mModel.UserId = textBox1.Text;
                 flag1 = true;
-                label1.Text = "";
+                label4.Text = "";
             }
             else
             {
-                label1.ForeColor = Color.Red;
-                label1.Text = "請輸入正確的工號";
+                label4.ForeColor = Color.Red;
+                label4.Text = hWebservice.xxcc_work_num_f(mModel.Factory, textBox1.Text, mModel.ProcessId, mModel.LineId);
                 flag1 = false;
             }
         }
 
         private void textBox2_Validated(object sender, EventArgs e)
         {
-            if(hWebservice.XXCC_LOT_PC_F(mModel.Factory,textBox2.Text,mModel.ProcessId)=="")
+            if(hWebservice.XXCC_LOT_PC_F(mModel.Factory,textBox2.Text,mModel.ProcessId)=="OK")
             {
-                label2.ForeColor = Color.Red;
-                label2.Text = "請輸入正確的批號";
-                flag2 = false;
+                
+                string ssss = hWebservice.GetPartnum(textBox2.Text);
+                mModel.ProductNum = ssss.Substring(0, ssss.IndexOf("，"));
+                textBox3.Text = mModel.ProductNum;
+                mModel.ProductId = textBox2.Text;
+                flag2 = true;
+                //mModel.ProductNum = textBox3.Text;
+                label5.Text = "";
             }
             else
             {
-                string ssss = hWebservice.GetPartnum(mModel.ProductId);
-                mModel.ProductNum = ssss.Substring(0, ssss.IndexOf(","));             
-                textBox3.Text = mModel.ProductNum;
-                mModel.ProductId = textBox2.Text;
-                //mModel.ProductNum = textBox3.Text;
-                label2.Text = "";
+                
+                label5.ForeColor = Color.Red;
+                label5.Text = hWebservice.XXCC_LOT_PC_F(mModel.Factory, textBox2.Text, mModel.ProcessId);
+                flag2 = false;
             }
         }
 
@@ -80,19 +88,24 @@ namespace WindowsFormsApp5
         {
             hWebservice = new HuaTongWebReference1.WebService1();
             mModel = MessageModel.instance();
+            mModel.Isform3Alive = true;
         }
 
         private void Form3_FormClosed(object sender, FormClosedEventArgs e)
         {
             if(flag==true)
             {
+                mModel.IsSave = false;
                 mModel.IsConnect = true;
+
                 hWebservice.SendBasicMessage(mModel.Factory, mModel.LineId, mModel.LineNumber, mModel.ProcessId, mModel.UserId, mModel.ProductId, mModel.ProductNum);
+                Window.TextBox4Add();
             }
             else
             {
                 flag = false;
-                    }
+            }
+            mModel.Isform3Alive = false;
         }
     }
 }

@@ -37,11 +37,11 @@ namespace WindowsFormsApp5
             
             mModel = MessageModel.instance();
             webService = new HuaTongWebReference1.WebService1();
-
+            form2 = new Window2cs(this);
             //Thread t = new Thread(new ThreadStart(initForm2));
             //t.Start();
-            
-            
+
+
         }
 
         public void closeForm()
@@ -67,7 +67,7 @@ namespace WindowsFormsApp5
         {
             try
             {
-                form2 = new Window2cs(this);
+
                 this.Width = 885;
                 this.Height = 496;
                 this.SetBounds((Screen.GetBounds(this).Width / 2) - (this.Width / 2),
@@ -77,13 +77,7 @@ namespace WindowsFormsApp5
                 groupBox3.Controls.Clear();
                 groupBox3.Controls.Add(form2);
                 setToolstrip();
-                toolStripStatusLabel1.Text = mModel.Factory;
-                    toolStripStatusLabel2.Text = mModel.LineId;
-                toolStripStatusLabel3.Text = mModel.LineNumber;
-                    toolStripStatusLabel4.Text = mModel.ProcessId;
-                    toolStripLabel1.Text = "工號：" + mModel.UserId;
-                    toolStripLabel2.Text = "批號：" + mModel.ProductId;
-                
+                SetToolstripValue();
 
             }
             catch (Exception exception)
@@ -93,8 +87,28 @@ namespace WindowsFormsApp5
             }
         }
 
-    
-       public bool close = false;
+        public void SetToolstripValue()
+        {
+            toolStripStatusLabel1.Text = mModel.Factory;
+            toolStripStatusLabel2.Text = mModel.LineId;
+            toolStripStatusLabel3.Text = mModel.LineNumber;
+            toolStripStatusLabel4.Text = mModel.ProcessId;
+            toolStripLabel1.Text = "工號：" + mModel.UserId;
+            if (mModel.ProductNum == null || mModel.ProductNum.Trim() == "")
+            {
+                toolStripButton4.Text = "";
+                toolStripSeparator5.Visible = false;
+
+            }
+            else
+            {
+                toolStripButton4.Text = "料号：" + mModel.ProductNum;
+                toolStripSeparator5.Visible = true;
+            }
+            toolStripLabel2.Text = "批號：" + mModel.ProductId;
+        }
+
+        public bool close = false;
        
 
         private void productIdtxt_Validated(object sender, EventArgs e)
@@ -141,9 +155,10 @@ namespace WindowsFormsApp5
         {
             this.Close();
         }
-        //public GroupBox GetgroupBox()
-        //{
-        //    return this.groupBox3;
-        //}
+        public void RepainForm()
+        {
+            toolStripLabel1.Text = mModel.UserId;
+            toolStripLabel2.Text = mModel.ProductId;
+        }
     }
 }
