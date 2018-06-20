@@ -91,9 +91,9 @@ namespace WindowsFormsApp5
         public void SetToolstripValue()
         {
             toolStripStatusLabel1.Text = mModel.Factory;
-            toolStripStatusLabel2.Text = mModel.LineId;
-            toolStripStatusLabel3.Text = mModel.LineNumber;
-            toolStripStatusLabel4.Text = mModel.ProcessId;
+            toolStripStatusLabel2.Text = mModel.LineIds[Convert.ToInt32(mModel.LineId)];
+            toolStripStatusLabel3.Text = mModel.LineNumbers[Convert.ToInt32(mModel.LineNumber)];
+            toolStripStatusLabel4.Text = mModel.ProcessIds[Convert.ToInt32(mModel.ProcessId)];
             toolStripLabel1.Text = "工號：" + mModel.UserId;
             if (mModel.ProductNum == null || mModel.ProductNum.Trim() == "")
             {

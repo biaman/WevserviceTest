@@ -103,3 +103,7 @@ D:\Study\huatong\WevserviceTest\WindowsFormsApp5\obj\Debug\WindowsFormsApp5.Prop
 D:\Study\huatong\WevserviceTest\WindowsFormsApp5\obj\Debug\WindowsFormsApp5.Window2cs.resources
 D:\Study\huatong\WevserviceTest\WindowsFormsApp5\obj\Debug\WindowsFormsApp5.Windows1cs.resources
 D:\Study\huatong\WevserviceTest\WindowsFormsApp5\obj\Debug\WindowsFormsApp5.csproj.GenerateResource.Cache
+D:\Study\huatong\WevserviceTest\WindowsFormsApp5\obj\Debug\WindowsFormsApp5.Form4.resources
+D:\Study\huatong\WevserviceTest\WindowsFormsApp5\obj\Debug\WindowsFormsApp5.Form5.resources
+D:\Study\huatong\WevserviceTest\WindowsFormsApp5\obj\Debug\WindowsFormsApp5.Form6.resources
+D:\Study\huatong\WevserviceTest\WindowsFormsApp5\obj\Debug\WindowsFormsApp5.Form7.resources

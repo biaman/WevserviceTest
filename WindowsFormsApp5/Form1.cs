@@ -85,6 +85,7 @@ namespace WindowsFormsApp5
                 button1.Visible = true;
                 button2.Visible = true;
                 mModel.Timer1Wait = 0;
+                MessageBox.Show("未能成功連接至服務器，請檢查網絡是否暢通，網線是否插好，網絡檢測後點擊重新連接進入重連，若網絡段時間內無法連接，請進入無連接運行");
             }
         }
 

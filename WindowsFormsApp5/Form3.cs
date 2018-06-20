@@ -29,7 +29,7 @@ namespace WindowsFormsApp5
         #endregion
         private void textBox1_Validated(object sender, EventArgs e)
         {
-            if (hWebservice.xxcc_work_num_f(mModel.Factory,textBox1.Text,mModel.ProcessId,mModel.LineId)=="OK")
+            if (hWebservice.xxcc_work_num_f(mModel.Factory,textBox1.Text,mModel.ProcessIds[0], mModel.LineIds[0]) =="OK")
             {
                 mModel.UserId = textBox1.Text;
                 flag1 = true;
@@ -38,14 +38,14 @@ namespace WindowsFormsApp5
             else
             {
                 label4.ForeColor = Color.Red;
-                label4.Text = hWebservice.xxcc_work_num_f(mModel.Factory, textBox1.Text, mModel.ProcessId, mModel.LineId);
+                label4.Text = hWebservice.xxcc_work_num_f(mModel.Factory, textBox1.Text, mModel.ProcessIds[0], mModel.LineIds[0]);
                 flag1 = false;
             }
         }
 
         private void textBox2_Validated(object sender, EventArgs e)
         {
-            if(hWebservice.XXCC_LOT_PC_F(mModel.Factory,textBox2.Text,mModel.ProcessId)=="OK")
+            if(hWebservice.XXCC_LOT_PC_F(mModel.Factory,textBox2.Text,mModel.ProcessIds[0])=="OK")
             {
                 
                 string ssss = hWebservice.GetPartnum(textBox2.Text);
@@ -60,7 +60,7 @@ namespace WindowsFormsApp5
             {
                 
                 label5.ForeColor = Color.Red;
-                label5.Text = hWebservice.XXCC_LOT_PC_F(mModel.Factory, textBox2.Text, mModel.ProcessId);
+                label5.Text = hWebservice.XXCC_LOT_PC_F(mModel.Factory, textBox2.Text, mModel.ProcessIds[0]);
                 flag2 = false;
             }
         }
@@ -98,7 +98,7 @@ namespace WindowsFormsApp5
                 mModel.IsSave = false;
                 mModel.IsConnect = true;
 
-                hWebservice.SendBasicMessage(mModel.Factory, mModel.LineId, mModel.LineNumber, mModel.ProcessId, mModel.UserId, mModel.ProductId, mModel.ProductNum);
+                hWebservice.SendBasicMessage(mModel.Factory, mModel.LineIds[0], mModel.LineNumbers[0], mModel.ProcessIds[0], mModel.UserId, mModel.ProductId, mModel.ProductNum);
                 Window.TextBox4Add();
             }
             else

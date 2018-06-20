@@ -152,16 +152,16 @@ namespace WindowsFormsApp5
         {
             if(mModel.IsConnect)
             { 
-            textBox4.AppendText("已连接至服务器\r\n");
+            textBox4.AppendText("已連接至服務器\r\n");
             label1.ForeColor = Color.Green;
-            label1.Text = "已连接";
+            label1.Text = "已連接";
             mainForm.SetToolstripValue();
             }
             else if(!mModel.IsConnect)
             {
                 textBox4.AppendText("沒有網絡，數據將保存在本地" + "\r\n");               
                 label1.ForeColor = Color.Red;
-                label1.Text = "已断开连接";              
+                label1.Text = "已斷開連接";              
             }
         }
 
@@ -322,7 +322,7 @@ namespace WindowsFormsApp5
             catch
             {
                 button1.Visible = true;
-                textBox4.AppendText("串口COM2异常，未能正常打开读码器连接,请检查串口是否被占用,或者串口线未连接;\r\n");
+                textBox4.AppendText("串口COM2異常，未能正常打開讀碼器的連接,請檢查串口COM2是否被佔用,或者串口线是否連接，是否接觸不良;\r\n");
             }
             try { 
             if (!LightSP.IsOpen)
@@ -334,7 +334,7 @@ namespace WindowsFormsApp5
             }catch
             {
                 button2.Visible = true;
-                textBox4.AppendText("串口COM1异常，未能正常打开报警灯连接,请检查串口是否被占用,或者串口线未连接;\r\n");
+                textBox4.AppendText("串口COM1異常，未能正常打開報警燈的連接,請檢查串口COM1是否被佔用,或者串口線是否連接，是否接觸不良;\r\n");
             }
         }
 
@@ -386,12 +386,14 @@ namespace WindowsFormsApp5
 
         private void button1_Click(object sender, EventArgs e)
         {
-            try { 
+            try {
+                textBox4.AppendText("檢測讀碼其連接情況\r\n");
             if(!MiscroSP.IsOpen)
             {
+                textBox4.AppendText("嘗試連接讀碼器\r\n");
                 MiscroSP.Open();
-                textBox4.AppendText("读码器连接成功\r\n");
-                    button1.Visible = false;
+                textBox4.AppendText("讀碼器連接成功\r\n");
+                button1.Visible = false;
             }
             }
             catch { }

@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using System.Threading;
+using Microsoft.VisualBasic;
 
 namespace WindowsFormsApp5
 {
@@ -45,7 +46,7 @@ namespace WindowsFormsApp5
             {
                 try
                 {
-                    string message = webService.xxcc_work_num_f(mModel.Factory,userIdtxt.Text,mModel.ProcessId,mModel.LineNumber);
+                    string message = webService.xxcc_work_num_f(mModel.Factory,userIdtxt.Text,mModel.ProcessIds[Convert.ToInt32(mModel.ProcessId)],mModel.LineNumbers[Convert.ToInt32(mModel.LineNumber)]);
                     if (message != "OK")
                     {
                         label8.ForeColor = Color.Red;
@@ -79,7 +80,7 @@ namespace WindowsFormsApp5
             {
                 try
                 {
-                    string message = webService.XXCC_LOT_PC_F(mModel.Factory,productIdtxt.Text,mModel.ProcessId);
+                    string message = webService.XXCC_LOT_PC_F(mModel.Factory,productIdtxt.Text,mModel.ProcessIds[Convert.ToInt32(mModel.ProcessId)]);
                     if (message == "OK")
                     {
                         mModel.IsFlag1 = true;
@@ -112,8 +113,12 @@ namespace WindowsFormsApp5
             productNumtxt.Text = mModel.ProductNum;
         }
         //连接状态改变更新界面
-        private void initForm2()
+        public void initForm2()
         {
+            label4.Text = mModel.Factory;
+            label3.Text = mModel.LineIds[Convert.ToInt32(mModel.LineId)];
+            label5.Text = mModel.LineNumbers[Convert.ToInt32(mModel.LineNumber)];
+            label6.Text = mModel.ProcessIds[Convert.ToInt32(mModel.ProcessId)];
             userIdtxt.Text = mModel.UserId ?? "";
             productIdtxt.Text = mModel.ProductId ?? "";
             if (mModel.IsConnect == true)
@@ -154,11 +159,7 @@ namespace WindowsFormsApp5
                 MessageBox.Show(ex.Message);
             }
             finally
-            {
-                mModel.Factory = label4.Text;
-                mModel.LineId = label3.Text;
-                mModel.LineNumber = label5.Text;
-                mModel.ProcessId = label6.Text;
+            {               
                 mModel.UserId = userIdtxt.Text;
                 mModel.ProductId = productIdtxt.Text;
 
@@ -186,6 +187,20 @@ namespace WindowsFormsApp5
         private void Windows1cs_Load(object sender, EventArgs e)
         {
             initForm2();
+        }
+
+        private void radioButton2_CheckedChanged(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+          
+            Form6 form6 = new Form6(this);
+            form6.Show();
+            //Application.Run();
+       
         }
     }
 }

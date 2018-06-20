@@ -65,7 +65,7 @@
             this.groupBox2.Size = new System.Drawing.Size(421, 56);
             this.groupBox2.TabIndex = 23;
             this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "读码器获取的信息";
+            this.groupBox2.Text = "讀碼器獲取的數據";
             // 
             // textBox2
             // 
@@ -84,7 +84,7 @@
             this.groupBox1.Size = new System.Drawing.Size(415, 53);
             this.groupBox1.TabIndex = 24;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "服务器返回信息";
+            this.groupBox1.Text = "服務器返回的數據";
             // 
             // textBox1
             // 
@@ -126,7 +126,7 @@
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(98, 21);
             this.label1.TabIndex = 36;
-            this.label1.Text = "连接状态";
+            this.label1.Text = "連接狀態";
             // 
             // button1
             // 
@@ -134,7 +134,7 @@
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 37;
-            this.button1.Text = "读码器重连";
+            this.button1.Text = "讀碼器重連";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
@@ -144,7 +144,7 @@
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(75, 23);
             this.button2.TabIndex = 38;
-            this.button2.Text = "报警灯重连";
+            this.button2.Text = "報警燈重連";
             this.button2.UseVisualStyleBackColor = true;
             // 
             // Window2cs

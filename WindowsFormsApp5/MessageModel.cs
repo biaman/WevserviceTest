@@ -7,6 +7,7 @@ namespace WindowsFormsApp5
 {
     class MessageModel
     {
+        IniFile iniFile = new IniFile("D:\\FaBasicMessage.ini");
         private static MessageModel mModel = new MessageModel();
         private MessageModel()
         { }
@@ -23,8 +24,11 @@ namespace WindowsFormsApp5
         private string _productNum;//料號
         private bool _isConnect;//連接狀態
         private string _userId;//工號
-        private string _lineId;//線
-        private string _lineNumber;//線別
+        private string[] _lineIds= {"Shadow","CVL快壓" };//線
+        private string lineId;
+        private string lineNumber;
+        private string processId;
+        private string[] _lineNumbers= { "-D","-1"};//線別
         private bool isform3Alive;
         private bool timerFlag1;
         private bool timerFlag2;
@@ -34,8 +38,10 @@ namespace WindowsFormsApp5
         private int timerWait2;
         private int timerWait3;
         private bool isSave;
-        private string factory;//廠號      
-        private string processId;//製程
+        private string factory = "CF廠";//廠號      
+        private string[] processIds= { "A3F","DLF"};//製程   
+        private string password;
+        private string managepass;
         public bool IsFlag
         {
             get { return _isFlag; }
@@ -71,15 +77,13 @@ namespace WindowsFormsApp5
             get { return _userId; }
             set { _userId = value; }
         }
-        public string LineId
+        public string[] LineIds
         {
-            get { return _lineId; }
-            set { _lineId = value; }
+            get { return _lineIds; }          
         }
-        public string LineNumber
+        public string[] LineNumbers
         {
-            get { return _lineNumber; }
-            set { _lineNumber = value; }
+            get { return _lineNumbers; }           
         }
 
         public bool TimerFlag1
@@ -206,21 +210,12 @@ namespace WindowsFormsApp5
                 return factory;
             }
 
-            set
-            {
-                factory = value;
-            }
         }    
-        public string ProcessId
+        public string[] ProcessIds
         {
             get
             {
-                return processId;
-            }
-
-            set
-            {
-                processId = value;
+                return processIds;
             }
         }
 
@@ -262,5 +257,77 @@ namespace WindowsFormsApp5
                 isform3Alive = value;
             }
         }
+
+        public string Password
+        {
+            get 
+            {
+                password = iniFile.IniReadValue("廠區信息", "密碼");
+                return password;
+            }
+
+            set
+            {
+                password = MD5Cls.md5(value);
+                iniFile.WriteString("廠區信息", "密碼1", password);
+            }
+        }
+
+        public string Managepass
+        {
+            get
+            {
+                managepass = iniFile.IniReadValue("廠區信息", "密碼1");
+                return managepass;
+            }
+
+            set
+            {
+                managepass = MD5Cls.md5(value);
+                iniFile.WriteString("廠區信息", "密碼1", managepass);
+            }
+        }
+
+        public string LineId
+        {
+            get
+            {
+                lineId = iniFile.IniReadValue("廠區信息", "線別");
+                return lineId;
+            }
+            set
+            {
+                lineId = value;
+                iniFile.WriteString("廠區信息", "線別", lineId);
+            }
+        }
+
+        public string LineNumber
+        {
+            get
+            {
+                lineNumber = iniFile.IniReadValue("廠區信息", "線別編號");
+                return lineNumber;
+            }
+            set
+            {
+                lineNumber = value;
+                iniFile.WriteString("廠區信息", "線別編號", lineNumber);
+            }
+        }
+
+        public string ProcessId
+        {
+            get
+            {
+                processId = iniFile.IniReadValue("廠區信息", "製程");
+                return processId;
+            }
+            set
+            {
+                processId = value;
+                iniFile.WriteString("廠區信息", "製程", processId);
+            }
+        }    
     }
 }
