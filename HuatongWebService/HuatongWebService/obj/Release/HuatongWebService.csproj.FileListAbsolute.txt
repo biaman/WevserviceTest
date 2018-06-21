@@ -18,3 +18,23 @@ D:\Normal Trainning\HuatongWebService\HuatongWebService\bin\Microsoft.CodeDom.Pr
 D:\Normal Trainning\HuatongWebService\HuatongWebService\obj\Release\HuatongWebService.csprojResolveAssemblyReference.cache
 D:\Normal Trainning\HuatongWebService\HuatongWebService\obj\Release\HuatongWebService.dll
 D:\Normal Trainning\HuatongWebService\HuatongWebService\obj\Release\HuatongWebService.pdb
+D:\Study\huatong\WevserviceTest\HuatongWebService\HuatongWebService\bin\roslyn\csc.exe
+D:\Study\huatong\WevserviceTest\HuatongWebService\HuatongWebService\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+D:\Study\huatong\WevserviceTest\HuatongWebService\HuatongWebService\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+D:\Study\huatong\WevserviceTest\HuatongWebService\HuatongWebService\bin\roslyn\Microsoft.CodeAnalysis.dll
+D:\Study\huatong\WevserviceTest\HuatongWebService\HuatongWebService\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+D:\Study\huatong\WevserviceTest\HuatongWebService\HuatongWebService\bin\roslyn\Microsoft.CSharp.Core.targets
+D:\Study\huatong\WevserviceTest\HuatongWebService\HuatongWebService\bin\roslyn\Microsoft.VisualBasic.Core.targets
+D:\Study\huatong\WevserviceTest\HuatongWebService\HuatongWebService\bin\roslyn\System.Collections.Immutable.dll
+D:\Study\huatong\WevserviceTest\HuatongWebService\HuatongWebService\bin\roslyn\System.Reflection.Metadata.dll
+D:\Study\huatong\WevserviceTest\HuatongWebService\HuatongWebService\bin\roslyn\vbc.exe
+D:\Study\huatong\WevserviceTest\HuatongWebService\HuatongWebService\bin\roslyn\VBCSCompiler.exe
+D:\Study\huatong\WevserviceTest\HuatongWebService\HuatongWebService\bin\roslyn\VBCSCompiler.exe.config
+D:\Study\huatong\WevserviceTest\HuatongWebService\HuatongWebService\bin\HuatongWebService.dll.config
+D:\Study\huatong\WevserviceTest\HuatongWebService\HuatongWebService\bin\HuatongWebService.dll
+D:\Study\huatong\WevserviceTest\HuatongWebService\HuatongWebService\bin\HuatongWebService.pdb
+D:\Study\huatong\WevserviceTest\HuatongWebService\HuatongWebService\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+D:\Study\huatong\WevserviceTest\HuatongWebService\HuatongWebService\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+D:\Study\huatong\WevserviceTest\HuatongWebService\HuatongWebService\obj\Release\HuatongWebService.csprojResolveAssemblyReference.cache
+D:\Study\huatong\WevserviceTest\HuatongWebService\HuatongWebService\obj\Release\HuatongWebService.dll
+D:\Study\huatong\WevserviceTest\HuatongWebService\HuatongWebService\obj\Release\HuatongWebService.pdb

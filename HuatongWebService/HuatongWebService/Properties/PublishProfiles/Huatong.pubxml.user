@@ -10,7 +10,7 @@
   </PropertyGroup>
   <ItemGroup>
     <File Include="bin/HuatongWebService.dll">
-      <publishTime>06/04/2018 11:46:37</publishTime>
+      <publishTime>06/21/2018 09:19:03</publishTime>
     </File>
     <File Include="bin/Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll">
       <publishTime>06/15/2015 02:06:24</publishTime>
@@ -55,7 +55,7 @@
       <publishTime>05/10/2018 10:30:49</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>06/04/2018 11:46:40</publishTime>
+      <publishTime>06/21/2018 09:19:04</publishTime>
     </File>
     <File Include="WebService1.asmx">
       <publishTime>05/10/2018 10:32:40</publishTime>
