@@ -13,7 +13,7 @@
 // 
 #pragma warning disable 1591
 
-namespace WindowsFormsApp5.HuaTongWebReference1 {
+namespace HuatongWebService.WebReference {
     using System;
     using System.Web.Services;
     using System.Diagnostics;
@@ -49,7 +49,7 @@ namespace WindowsFormsApp5.HuaTongWebReference1 {
         
         /// <remarks/>
         public WebService1() {
-            this.Url = global::WindowsFormsApp5.Properties.Settings.Default.WindowsFormsApp5_HuaTongWebReference2_WebService1;
+            this.Url = global::HuatongWebService.Properties.Settings.Default.HuatongWebService_WebReference_WebService1;
             if ((this.IsLocalFileSystemWebService(this.Url) == true)) {
                 this.UseDefaultCredentials = true;
                 this.useDefaultCredentialsSetExplicitly = false;

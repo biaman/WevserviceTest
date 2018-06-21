@@ -37,7 +37,7 @@ namespace WindowsFormsApp5
             
             mModel = MessageModel.instance();
             webService = new HuaTongWebReference1.WebService1();
-            form2 = new Window2cs(this);
+            
             //Thread t = new Thread(new ThreadStart(initForm2));
             //t.Start();
 
@@ -67,7 +67,7 @@ namespace WindowsFormsApp5
         {
             try
             {
-
+                form2 = new Window2cs(this);
                 this.Width = 885;
                 this.Height = 496;
                 this.SetBounds((Screen.GetBounds(this).Width / 2) - (this.Width / 2),
@@ -141,7 +141,7 @@ namespace WindowsFormsApp5
 
         private void toolStripButton1_Click_1(object sender, EventArgs e)
         {
-
+            form2.Dispose();
             fun1();
             toolStrip1.Visible = false;
             statusStrip1.Visible = false;

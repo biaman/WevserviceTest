@@ -37,6 +37,9 @@ namespace WindowsFormsApp5
         public delegate void circleIngnore();
         //string checkString;
         MessageModel mModel;
+        int i = 1;
+        int j = 1;
+        int z = 1;
         #endregion
 
         //串口事件
@@ -63,7 +66,8 @@ namespace WindowsFormsApp5
                     
                     //msg.ProductCode = byToHexStr(buffer, len);
                     textBox2.Text = mModel.ProductCode;
-                    textBox4.Text += "Barcode:"+ mModel.ProductCode + "\r\n";
+                    textBox4.Text += "Barcode"+i+":"+ mModel.ProductCode + "\r\n";
+                    i++;
                     if(time1Num!=0)
                     {
                         time1Num--;
@@ -71,7 +75,7 @@ namespace WindowsFormsApp5
                     timer1.Enabled = true;
                 }
                 MiscroSP.DiscardInBuffer();
-                textBox1.Text = "Barcode:" + mModel.ProductCode;
+                
                 mModel.Productions = mModel.ProductCode;
                 SendProducts();
             }
@@ -176,12 +180,12 @@ namespace WindowsFormsApp5
                 mModel.ProductId2 = mModel.ProductId;
             FileStream fs = new FileStream(path, FileMode.Append, FileAccess.Write);
             StreamWriter textWrite = new StreamWriter(fs, Encoding.UTF8);
-            textWrite.Write(mModel.Factory + "," + mModel.LineNumber + "," + mModel.LineId + "," + mModel.ProcessId);
+            textWrite.Write("工號："+mModel.UserId+","+ mModel.Factory + "," + mModel.LineIds[Convert.ToInt32(mModel.LineId)] + "," + mModel.LineNumbers[Convert.ToInt32(mModel.LineNumber)] + "線," + mModel.ProcessIds[Convert.ToInt32(mModel.ProcessId)]+"製程");
             textWrite.Close();
             fs.Close();
             }
             string path1 = string.Format("D:\\Products\\{0}\\{1}Barcode.txt", pathtime, mModel.ProductId);
-            string time = DateTime.Now.ToString("HH_mm_ss_fff");
+            string time = DateTime.Now.ToString("HH:mm:ss:fff");
            
             FileStream fs1 = new FileStream(path1, FileMode.Append, FileAccess.Write);
             StreamWriter textWrite1 = new StreamWriter(fs1, Encoding.UTF8);
@@ -192,21 +196,34 @@ namespace WindowsFormsApp5
         public void SendToWeb()
         {
             try {
-                string s = hWebService.SendBarcodes(mModel.ProductCode, mModel.ProductId);
+                string s = hWebService.insert_cc_wip_lot_bc_history(mModel.Factory, mModel.ProductId, mModel.ProductCode,mModel.LineIds[Convert.ToInt32(mModel.LineId)],mModel.LineNumbers[Convert.ToInt32(mModel.LineNumber)],mModel.P_LOT_TYPE);
                 mModel.IsSave = false;
-                if(s=="OK")
+                textBox1.Text = s;
+                if (s=="OK")
                 {
+                    j++;
+                    label4.ForeColor = Color.Green;
+                    label4.Text = j + "";
                     //textBox4.Text += "匹配通過" + "\r\n";
                 }
                 else
                 {
+                    label7.ForeColor = Color.Red;
+                    label7.Text = z + "";
+                    textBox4.AppendText(s + "\r\n");
                     LightSP.Write(openByte, 0, openByte.Length);
+                    
                 }
-            }catch(Exception ex)
+                
+            }
+            catch(Exception ex)
             {
+                MessageBox.Show(ex.Message);
                 mModel.IsSave = true;
                 mModel.IsConnect = false;
             }
+            finally
+            { label5.Text = i + ""; }
            //checkString = PostWebRequest( msg.Productions);
         }
         //16进制转为字符串
@@ -301,6 +318,9 @@ namespace WindowsFormsApp5
             mModel.TimerFlag2 = false;
             mModel.TimerFlag3 = false;
             mModel.Isform3Alive = false;
+            label5.Text = "0";
+            label4.Text = "0";
+            label7.Text = "0";
             mModel.IsSave = false;
             string pathtime = DateTime.Now.ToString("yyyy-MM-dd");
             ConnectToSerip();
@@ -396,7 +416,37 @@ namespace WindowsFormsApp5
                 button1.Visible = false;
             }
             }
-            catch { }
+            catch(ArgumentException ae)
+            {
+                textBox4.AppendText(ae.Message+"\r\n");
+            }
+            catch(UnauthorizedAccessException)
+            {
+                textBox4.AppendText("該串口COM2被佔用\r\n");
+            }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                textBox4.AppendText("檢測COM1其連接情況\r\n");
+                if (!LightSP.IsOpen)
+                {
+                    textBox4.AppendText("嘗試COM1讀碼器\r\n");
+                    LightSP.Open();
+                    textBox4.AppendText("COM1連接成功\r\n");
+                    button2.Visible = false;
+                }
+            }
+            catch (ArgumentException ae)
+            {
+                textBox4.AppendText(ae.Message + "\r\n");
+            }
+            catch (UnauthorizedAccessException)
+            {
+                textBox4.AppendText("該串口COM1被佔用\r\n");
+            }
         }
     }
 }

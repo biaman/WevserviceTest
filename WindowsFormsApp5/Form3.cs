@@ -45,10 +45,10 @@ namespace WindowsFormsApp5
 
         private void textBox2_Validated(object sender, EventArgs e)
         {
-            if(hWebservice.XXCC_LOT_PC_F(mModel.Factory,textBox2.Text,mModel.ProcessIds[0])=="OK")
+            if(hWebservice.XXCC_LOT_PC_F(mModel.Factory,textBox2.Text,mModel.ProcessIds[Convert.ToInt32(mModel.ProcessId)],mModel.LineIds[Convert.ToInt32(mModel.LineId)],mModel.LineNumbers[Convert.ToInt32(mModel.LineNumber)],mModel.P_LOT_TYPE)=="OK")
             {
                 
-                string ssss = hWebservice.GetPartnum(textBox2.Text);
+                string ssss = hWebservice.getPartnum(textBox2.Text);
                 mModel.ProductNum = ssss.Substring(0, ssss.IndexOf("，"));
                 textBox3.Text = mModel.ProductNum;
                 mModel.ProductId = textBox2.Text;
@@ -60,7 +60,7 @@ namespace WindowsFormsApp5
             {
                 
                 label5.ForeColor = Color.Red;
-                label5.Text = hWebservice.XXCC_LOT_PC_F(mModel.Factory, textBox2.Text, mModel.ProcessIds[0]);
+                label5.Text = hWebservice.XXCC_LOT_PC_F(mModel.Factory, textBox2.Text, mModel.ProcessIds[Convert.ToInt32(mModel.ProcessId)],mModel.LineIds[Convert.ToInt32(mModel.LineId)],mModel.LineNumbers[Convert.ToInt32(mModel.LineNumber)], "1");
                 flag2 = false;
             }
         }
@@ -98,7 +98,7 @@ namespace WindowsFormsApp5
                 mModel.IsSave = false;
                 mModel.IsConnect = true;
 
-                hWebservice.SendBasicMessage(mModel.Factory, mModel.LineIds[0], mModel.LineNumbers[0], mModel.ProcessIds[0], mModel.UserId, mModel.ProductId, mModel.ProductNum);
+                hWebservice.insert_CM_WIP_PROCESS_LINE_HISTORY(mModel.Factory, mModel.LineIds[0], mModel.LineNumbers[0], mModel.ProcessIds[0], mModel.UserId, mModel.ProductId, mModel.ProductNum);
                 Window.TextBox4Add();
             }
             else

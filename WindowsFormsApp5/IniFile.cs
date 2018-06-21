@@ -42,6 +42,16 @@ namespace WindowsFormsApp5
             string lpFileName
             );
 
+        [DllImport("Kernel32.dll")]
+        private static extern int GetPrivateProfileString(
+          string lpAppName,
+          string lpKeyName,
+          string lpDefault,
+          Byte[] lpReturnedString,
+          int nSize,
+          string lpFileName
+            );
+
         /// <summary>
         /// 构造函数
         /// </summary>
@@ -135,7 +145,14 @@ namespace WindowsFormsApp5
             GetPrivateProfileString(section, name, "", strSb, 256, this.m_FileName);
             return strSb.ToString();
         }
-
+        public string[] IniReadByte(string section)
+        {
+            byte[] byt = new byte[2048];
+            GetPrivateProfileString(section, null, "", byt, 2048, this.FileName);
+            string sections = ASCIIEncoding.Default.GetString(byt);
+            string[] names = sections.Split(new char[1] { '\0' });
+            return names;
+        }
         /// <summary>
         /// 写入指定值，如果不存在 节-键，则会自动创建
         /// </summary>

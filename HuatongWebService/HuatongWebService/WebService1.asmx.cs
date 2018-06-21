@@ -90,12 +90,12 @@ namespace HuatongWebService
         {
             if(P_BC != null&& P_LOT != null)
             {
-                if(P_BC.Substring(0,7)==P_LOT)
-                {
+                //if(P_BC.Substring(0,7)==P_LOT)
+                //{
                     return "OK";
-                }
-                else
-                { return "該批號F706888400與條碼批號信息不一致"; }
+                //}
+                //else
+                //{ return "該批號F706888400與條碼批號信息不一致"; }
             }
             return "不匹配";
         }

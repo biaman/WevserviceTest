@@ -10,7 +10,7 @@
   </PropertyGroup>
   <ItemGroup>
     <File Include="bin/HuatongWebService.dll">
-      <publishTime>06/21/2018 09:19:03</publishTime>
+      <publishTime>06/21/2018 14:39:56</publishTime>
     </File>
     <File Include="bin/Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll">
       <publishTime>06/15/2015 02:06:24</publishTime>

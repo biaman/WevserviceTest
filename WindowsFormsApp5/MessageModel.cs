@@ -8,6 +8,7 @@ namespace WindowsFormsApp5
     class MessageModel
     {
         IniFile iniFile = new IniFile("D:\\FaBasicMessage.ini");
+        IniFile inifile = new IniFile("D:\\BasicMessage.ini");
         private static MessageModel mModel = new MessageModel();
         private MessageModel()
         { }
@@ -24,11 +25,11 @@ namespace WindowsFormsApp5
         private string _productNum;//料號
         private bool _isConnect;//連接狀態
         private string _userId;//工號
-        private string[] _lineIds= {"Shadow","CVL快壓" };//線
+        private string[] _lineIds;//線
         private string lineId;
         private string lineNumber;
         private string processId;
-        private string[] _lineNumbers= { "-D","-1"};//線別
+        private string[] _lineNumbers;//線別
         private bool isform3Alive;
         private bool timerFlag1;
         private bool timerFlag2;
@@ -39,9 +40,10 @@ namespace WindowsFormsApp5
         private int timerWait3;
         private bool isSave;
         private string factory = "CF廠";//廠號      
-        private string[] processIds= { "A3F","DLF"};//製程   
+        private string[] processIds;//製程   
         private string password;
         private string managepass;
+        private string p_LOT_TYPE;
         public bool IsFlag
         {
             get { return _isFlag; }
@@ -79,11 +81,19 @@ namespace WindowsFormsApp5
         }
         public string[] LineIds
         {
-            get { return _lineIds; }          
+            get
+            {
+                _lineIds = inifile.IniReadByte("線別");
+                return _lineIds;
+            }          
         }
         public string[] LineNumbers
         {
-            get { return _lineNumbers; }           
+            get
+            {
+                _lineNumbers = inifile.IniReadByte("線別編號");
+                return _lineNumbers;
+            }           
         }
 
         public bool TimerFlag1
@@ -215,6 +225,7 @@ namespace WindowsFormsApp5
         {
             get
             {
+                processIds = inifile.IniReadByte("製程");
                 return processIds;
             }
         }
@@ -269,7 +280,7 @@ namespace WindowsFormsApp5
             set
             {
                 password = MD5Cls.md5(value);
-                iniFile.WriteString("廠區信息", "密碼1", password);
+                iniFile.WriteString("廠區信息", "密碼", password);
             }
         }
 
@@ -328,6 +339,19 @@ namespace WindowsFormsApp5
                 processId = value;
                 iniFile.WriteString("廠區信息", "製程", processId);
             }
-        }    
+        }
+
+        public string P_LOT_TYPE
+        {
+            get
+            {
+                return p_LOT_TYPE;
+            }
+
+            set
+            {
+                p_LOT_TYPE = value;
+            }
+        }
     }
 }

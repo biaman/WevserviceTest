@@ -80,7 +80,7 @@ namespace WindowsFormsApp5
             {
                 try
                 {
-                    string message = webService.XXCC_LOT_PC_F(mModel.Factory,productIdtxt.Text,mModel.ProcessIds[Convert.ToInt32(mModel.ProcessId)]);
+                    string message = webService.XXCC_LOT_PC_F(mModel.Factory,productIdtxt.Text,mModel.ProcessIds[Convert.ToInt32(mModel.ProcessId)],mModel.LineIds[Convert.ToInt32(mModel.LineId)],mModel.LineNumbers[Convert.ToInt32(mModel.LineNumber)],"1");
                     if (message == "OK")
                     {
                         mModel.IsFlag1 = true;
@@ -107,7 +107,7 @@ namespace WindowsFormsApp5
         //获取料号
         private void getProductNum()
         {
-            string ssss = webService.GetPartnum(productIdtxt.Text);
+            string ssss = webService.getPartnum(productIdtxt.Text);
             //int i = ssss.IndexOf("，");
             mModel.ProductNum = ssss.Substring(0, ssss.IndexOf("，"));
             productNumtxt.Text = mModel.ProductNum;
@@ -189,18 +189,23 @@ namespace WindowsFormsApp5
             initForm2();
         }
 
-        private void radioButton2_CheckedChanged(object sender, EventArgs e)
+
+        private void radioButton1_CheckedChanged(object sender, EventArgs e)
         {
-            
+            if(radioButton1.Checked)
+            {
+                mModel.P_LOT_TYPE = "正常";
+            }
+            else
+            {
+                mModel.P_LOT_TYPE = "重工";   
+            }
         }
 
-        private void pictureBox1_Click(object sender, EventArgs e)
+        private void label4_Click(object sender, EventArgs e)
         {
-          
             Form6 form6 = new Form6(this);
             form6.Show();
-            //Application.Run();
-       
         }
     }
 }
