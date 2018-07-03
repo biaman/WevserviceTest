@@ -8,6 +8,7 @@ using System.Text;
 using System.Windows.Forms;
 using System.Threading;
 using Microsoft.VisualBasic;
+using Microsoft.VisualBasic.Devices;
 
 namespace WindowsFormsApp5
 {
@@ -23,7 +24,7 @@ namespace WindowsFormsApp5
         }
         Form2 form2;
         MessageModel mModel = MessageModel.instance();
-        HuaTongWebReference1.WebService1 webService = new HuaTongWebReference1.WebService1();
+        WebReference.Service webService = new WebReference.Service();
         //重连数据保存
         private void button2_Click(object sender, EventArgs e)
         {
@@ -46,7 +47,8 @@ namespace WindowsFormsApp5
             {
                 try
                 {
-                    string message = webService.xxcc_work_num_f(mModel.Factory,userIdtxt.Text,mModel.ProcessIds[Convert.ToInt32(mModel.ProcessId)],mModel.LineNumbers[Convert.ToInt32(mModel.LineNumber)]);
+                    string message = webService.xxcc_work_num_f(mModel.Factories[Convert.ToInt32(mModel.Factory)],userIdtxt.Text,mModel.ProcessIds[Convert.ToInt32(mModel.ProcessId)], mModel.LineIds[Convert.ToInt32(mModel.LineId)]);
+                    //MessageBox.Show("工廠：" + mModel.Factories[Convert.ToInt32(mModel.Factory)] + "工號：" + userIdtxt.Text + "製程：" + mModel.ProcessIds[Convert.ToInt32(mModel.ProcessId)] + "線別：" + mModel.LineIds[Convert.ToInt32(mModel.LineId)]);
                     if (message != "OK")
                     {
                         label8.ForeColor = Color.Red;
@@ -55,7 +57,8 @@ namespace WindowsFormsApp5
                     }
                     else
                     {
-                        label8.Text = "";
+                        label8.ForeColor = Color.Green;
+                        label8.Text = message;
                         mModel.IsFlag = true;
                     }
                 }
@@ -80,14 +83,16 @@ namespace WindowsFormsApp5
             {
                 try
                 {
-                    string message = webService.XXCC_LOT_PC_F(mModel.Factory,productIdtxt.Text,mModel.ProcessIds[Convert.ToInt32(mModel.ProcessId)],mModel.LineIds[Convert.ToInt32(mModel.LineId)],mModel.LineNumbers[Convert.ToInt32(mModel.LineNumber)],"1");
+                    string message = webService.XXCC_LOT_PC_F(mModel.Factories[Convert.ToInt32(mModel.Factory)],productIdtxt.Text,mModel.ProcessIds[Convert.ToInt32(mModel.ProcessId)],mModel.LineIds[Convert.ToInt32(mModel.LineId)],mModel.LineNumbers[Convert.ToInt32(mModel.LineNumber)],"1");
+                    //MessageBox.Show(mModel.Factories[Convert.ToInt32(mModel.Factory)]+"," +productIdtxt.Text + "," + mModel.ProcessIds[Convert.ToInt32(mModel.ProcessId)] + "," + mModel.LineIds[Convert.ToInt32(mModel.LineId)] + "," + mModel.LineNumbers[Convert.ToInt32(mModel.LineNumber)] + "," + "1");
                     if (message == "OK")
                     {
                         mModel.IsFlag1 = true;
-                        label9.Text = "";
+                        label9.ForeColor = Color.Green;
+                        label9.Text = message;
                         getProductNum();
                         //productNumtxt.Text = message;
-                        
+
                     }
                     else
                     {
@@ -109,18 +114,20 @@ namespace WindowsFormsApp5
         {
             string ssss = webService.getPartnum(productIdtxt.Text);
             //int i = ssss.IndexOf("，");
-            mModel.ProductNum = ssss.Substring(0, ssss.IndexOf("，"));
+            mModel.ProductNum = ssss.Substring(0, ssss.IndexOf(","));
             productNumtxt.Text = mModel.ProductNum;
         }
         //连接状态改变更新界面
         public void initForm2()
         {
-            label4.Text = mModel.Factory;
-            label3.Text = mModel.LineIds[Convert.ToInt32(mModel.LineId)];
-            label5.Text = mModel.LineNumbers[Convert.ToInt32(mModel.LineNumber)];
-            label6.Text = mModel.ProcessIds[Convert.ToInt32(mModel.ProcessId)];
+            label4.Text ="廠區：" +mModel.Factories[Convert.ToInt32(mModel.Factory)]+"厰";
+            label3.Text = "製程名："+mModel.LineIds[Convert.ToInt32(mModel.LineId)];
+            label5.Text = "線別："+mModel.LineNumbers[Convert.ToInt32(mModel.LineNumber)];
+            label6.Text = "製程代號："+mModel.ProcessIds[Convert.ToInt32(mModel.ProcessId)];
             userIdtxt.Text = mModel.UserId ?? "";
             productIdtxt.Text = mModel.ProductId ?? "";
+            
+            bool flag =userIdtxt.Focus();
             if (mModel.IsConnect == true)
             {
                 //mModel.ProductNum = webService.CheckProductsId(mModel.ProductId);
@@ -160,8 +167,8 @@ namespace WindowsFormsApp5
             }
             finally
             {               
-                mModel.UserId = userIdtxt.Text;
-                mModel.ProductId = productIdtxt.Text;
+                //mModel.UserId = userIdtxt.Text;
+                //mModel.ProductId = productIdtxt.Text;
 
 
             }
@@ -171,7 +178,16 @@ namespace WindowsFormsApp5
         {
             try
             {
-                webService.SendProduct("basicMessage");
+              string ss=  webService.INSERT_CM_WIP_PROCESS_LINE_HISTORY(mModel.Factories[Convert.ToInt32(mModel.Factory)],userIdtxt.Text,productIdtxt.Text,mModel.ProcessIds[Convert.ToInt32(mModel.ProcessId)],mModel.LineIds[Convert.ToInt32(mModel.LineId)],mModel.LineNumbers[Convert.ToInt32(mModel.LineNumber)],mModel.P_LOT_TYPE,"");
+                //MessageBox.Show(mModel.Factories[Convert.ToInt32(mModel.Factory)]+","+userIdtxt.Text+","+productIdtxt.Text + "," + mModel.ProcessIds[Convert.ToInt32(mModel.ProcessId)] + "," + mModel.LineIds[Convert.ToInt32(mModel.LineId)] + "," + mModel.LineNumbers[Convert.ToInt32(mModel.LineNumber)] + "," + mModel.P_LOT_TYPE);
+                if(ss!="OK")
+                {
+                    MessageBox.Show(ss);
+                }
+                else
+                {
+                    this.BeginInvoke(new Action(() => { form2.fun(); }));
+                }
             }
             catch
             {
@@ -179,13 +195,14 @@ namespace WindowsFormsApp5
             }
             finally
             {
-                this.BeginInvoke(new Action(() => { form2.fun(); }));
+               
             }
 
         }
 
         private void Windows1cs_Load(object sender, EventArgs e)
         {
+            mModel.P_LOT_TYPE = "正常板";
             initForm2();
         }
 
@@ -194,11 +211,11 @@ namespace WindowsFormsApp5
         {
             if(radioButton1.Checked)
             {
-                mModel.P_LOT_TYPE = "正常";
+                mModel.P_LOT_TYPE = "正常板";
             }
             else
             {
-                mModel.P_LOT_TYPE = "重工";   
+                mModel.P_LOT_TYPE = "重工板";   
             }
         }
 
@@ -206,6 +223,18 @@ namespace WindowsFormsApp5
         {
             Form6 form6 = new Form6(this);
             form6.Show();
+        }
+
+        private void Windows1cs_Click(object sender, EventArgs e)
+        {
+            if(userIdtxt.Focused ==true)
+            { 
+            userIdtxt_Validated(sender,e);
+            }
+            if(productIdtxt.Focused ==true )
+            { 
+            productIdtxt_Validated(sender, e);
+            }
         }
     }
 }

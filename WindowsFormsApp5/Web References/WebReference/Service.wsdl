@@ -1,0 +1,482 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="ExecuteNonQuery">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sql" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ExecuteNonQueryResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ExecuteNonQueryResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ExecuteDataSet">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sql" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ExecuteDataSetResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ExecuteDataSetResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ExecuteLotQuery">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sql" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ExecuteLotQueryResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ExecuteLotQueryResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getPartnum">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="vlot" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getPartnumResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getPartnumResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="insert_cm_wip_print_label">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="P_ORG_CODE" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="P_LOT_NUM" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="P_PART_NUM" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="P_EQUIP_ID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="P_DATE_CODE" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="P_XOUT" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="P_QTY" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="P_UNIT_QTY" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="P_IP" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="P_ACCOUNT" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="insert_cm_wip_print_labelResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="insert_cm_wip_print_labelResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="xxcc_barcode">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="P_ORG_CODE" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="P_BARCODE" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="P_EQUIP_ID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="P_ACCOUNT" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="xxcc_barcodeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="xxcc_barcodeResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="INSERT_CM_WIP_PROCESS_LINE_HISTORY">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="P_ORG_CODE" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="P_NUM" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="P_LOT" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="P_PC" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="P_LINE" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="P_LINE_NUM" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="P_LOT_TYPE" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="P_BKfile" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="INSERT_CM_WIP_PROCESS_LINE_HISTORYResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="INSERT_CM_WIP_PROCESS_LINE_HISTORYResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="insert_cc_wip_lot_bc_history">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="P_ORG_CODE" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="P_LOT" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="P_BC" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="P_LINE" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="P_LINE_NUM" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="P_LOT_TYPE" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="insert_cc_wip_lot_bc_historyResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="insert_cc_wip_lot_bc_historyResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="XXCC_LOT_PC_F">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="P_ORG_CODE" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="P_LOT" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="P_PC" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="P_LINE" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="P_LINE_NUM" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="P_CHK_FLAG" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="XXCC_LOT_PC_FResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="XXCC_LOT_PC_FResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="xxcc_work_num_f">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="P_ORG_CODE" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="P_WORK_NUM" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="P_PC" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="P_LINE" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="xxcc_work_num_fResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="xxcc_work_num_fResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="ExecuteNonQuerySoapIn">
+    <wsdl:part name="parameters" element="tns:ExecuteNonQuery" />
+  </wsdl:message>
+  <wsdl:message name="ExecuteNonQuerySoapOut">
+    <wsdl:part name="parameters" element="tns:ExecuteNonQueryResponse" />
+  </wsdl:message>
+  <wsdl:message name="ExecuteDataSetSoapIn">
+    <wsdl:part name="parameters" element="tns:ExecuteDataSet" />
+  </wsdl:message>
+  <wsdl:message name="ExecuteDataSetSoapOut">
+    <wsdl:part name="parameters" element="tns:ExecuteDataSetResponse" />
+  </wsdl:message>
+  <wsdl:message name="ExecuteLotQuerySoapIn">
+    <wsdl:part name="parameters" element="tns:ExecuteLotQuery" />
+  </wsdl:message>
+  <wsdl:message name="ExecuteLotQuerySoapOut">
+    <wsdl:part name="parameters" element="tns:ExecuteLotQueryResponse" />
+  </wsdl:message>
+  <wsdl:message name="getPartnumSoapIn">
+    <wsdl:part name="parameters" element="tns:getPartnum" />
+  </wsdl:message>
+  <wsdl:message name="getPartnumSoapOut">
+    <wsdl:part name="parameters" element="tns:getPartnumResponse" />
+  </wsdl:message>
+  <wsdl:message name="insert_cm_wip_print_labelSoapIn">
+    <wsdl:part name="parameters" element="tns:insert_cm_wip_print_label" />
+  </wsdl:message>
+  <wsdl:message name="insert_cm_wip_print_labelSoapOut">
+    <wsdl:part name="parameters" element="tns:insert_cm_wip_print_labelResponse" />
+  </wsdl:message>
+  <wsdl:message name="xxcc_barcodeSoapIn">
+    <wsdl:part name="parameters" element="tns:xxcc_barcode" />
+  </wsdl:message>
+  <wsdl:message name="xxcc_barcodeSoapOut">
+    <wsdl:part name="parameters" element="tns:xxcc_barcodeResponse" />
+  </wsdl:message>
+  <wsdl:message name="INSERT_CM_WIP_PROCESS_LINE_HISTORYSoapIn">
+    <wsdl:part name="parameters" element="tns:INSERT_CM_WIP_PROCESS_LINE_HISTORY" />
+  </wsdl:message>
+  <wsdl:message name="INSERT_CM_WIP_PROCESS_LINE_HISTORYSoapOut">
+    <wsdl:part name="parameters" element="tns:INSERT_CM_WIP_PROCESS_LINE_HISTORYResponse" />
+  </wsdl:message>
+  <wsdl:message name="insert_cc_wip_lot_bc_historySoapIn">
+    <wsdl:part name="parameters" element="tns:insert_cc_wip_lot_bc_history" />
+  </wsdl:message>
+  <wsdl:message name="insert_cc_wip_lot_bc_historySoapOut">
+    <wsdl:part name="parameters" element="tns:insert_cc_wip_lot_bc_historyResponse" />
+  </wsdl:message>
+  <wsdl:message name="XXCC_LOT_PC_FSoapIn">
+    <wsdl:part name="parameters" element="tns:XXCC_LOT_PC_F" />
+  </wsdl:message>
+  <wsdl:message name="XXCC_LOT_PC_FSoapOut">
+    <wsdl:part name="parameters" element="tns:XXCC_LOT_PC_FResponse" />
+  </wsdl:message>
+  <wsdl:message name="xxcc_work_num_fSoapIn">
+    <wsdl:part name="parameters" element="tns:xxcc_work_num_f" />
+  </wsdl:message>
+  <wsdl:message name="xxcc_work_num_fSoapOut">
+    <wsdl:part name="parameters" element="tns:xxcc_work_num_fResponse" />
+  </wsdl:message>
+  <wsdl:portType name="ServiceSoap">
+    <wsdl:operation name="ExecuteNonQuery">
+      <wsdl:input message="tns:ExecuteNonQuerySoapIn" />
+      <wsdl:output message="tns:ExecuteNonQuerySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ExecuteDataSet">
+      <wsdl:input message="tns:ExecuteDataSetSoapIn" />
+      <wsdl:output message="tns:ExecuteDataSetSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ExecuteLotQuery">
+      <wsdl:input message="tns:ExecuteLotQuerySoapIn" />
+      <wsdl:output message="tns:ExecuteLotQuerySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getPartnum">
+      <wsdl:input message="tns:getPartnumSoapIn" />
+      <wsdl:output message="tns:getPartnumSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="insert_cm_wip_print_label">
+      <wsdl:input message="tns:insert_cm_wip_print_labelSoapIn" />
+      <wsdl:output message="tns:insert_cm_wip_print_labelSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="xxcc_barcode">
+      <wsdl:input message="tns:xxcc_barcodeSoapIn" />
+      <wsdl:output message="tns:xxcc_barcodeSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="INSERT_CM_WIP_PROCESS_LINE_HISTORY">
+      <wsdl:input message="tns:INSERT_CM_WIP_PROCESS_LINE_HISTORYSoapIn" />
+      <wsdl:output message="tns:INSERT_CM_WIP_PROCESS_LINE_HISTORYSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="insert_cc_wip_lot_bc_history">
+      <wsdl:input message="tns:insert_cc_wip_lot_bc_historySoapIn" />
+      <wsdl:output message="tns:insert_cc_wip_lot_bc_historySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="XXCC_LOT_PC_F">
+      <wsdl:input message="tns:XXCC_LOT_PC_FSoapIn" />
+      <wsdl:output message="tns:XXCC_LOT_PC_FSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="xxcc_work_num_f">
+      <wsdl:input message="tns:xxcc_work_num_fSoapIn" />
+      <wsdl:output message="tns:xxcc_work_num_fSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="ServiceSoap" type="tns:ServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="ExecuteNonQuery">
+      <soap:operation soapAction="http://tempuri.org/ExecuteNonQuery" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ExecuteDataSet">
+      <soap:operation soapAction="http://tempuri.org/ExecuteDataSet" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ExecuteLotQuery">
+      <soap:operation soapAction="http://tempuri.org/ExecuteLotQuery" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getPartnum">
+      <soap:operation soapAction="http://tempuri.org/getPartnum" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="insert_cm_wip_print_label">
+      <soap:operation soapAction="http://tempuri.org/insert_cm_wip_print_label" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="xxcc_barcode">
+      <soap:operation soapAction="http://tempuri.org/xxcc_barcode" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="INSERT_CM_WIP_PROCESS_LINE_HISTORY">
+      <soap:operation soapAction="http://tempuri.org/INSERT_CM_WIP_PROCESS_LINE_HISTORY" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="insert_cc_wip_lot_bc_history">
+      <soap:operation soapAction="http://tempuri.org/insert_cc_wip_lot_bc_history" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="XXCC_LOT_PC_F">
+      <soap:operation soapAction="http://tempuri.org/XXCC_LOT_PC_F" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="xxcc_work_num_f">
+      <soap:operation soapAction="http://tempuri.org/xxcc_work_num_f" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="ServiceSoap12" type="tns:ServiceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="ExecuteNonQuery">
+      <soap12:operation soapAction="http://tempuri.org/ExecuteNonQuery" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ExecuteDataSet">
+      <soap12:operation soapAction="http://tempuri.org/ExecuteDataSet" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ExecuteLotQuery">
+      <soap12:operation soapAction="http://tempuri.org/ExecuteLotQuery" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getPartnum">
+      <soap12:operation soapAction="http://tempuri.org/getPartnum" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="insert_cm_wip_print_label">
+      <soap12:operation soapAction="http://tempuri.org/insert_cm_wip_print_label" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="xxcc_barcode">
+      <soap12:operation soapAction="http://tempuri.org/xxcc_barcode" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="INSERT_CM_WIP_PROCESS_LINE_HISTORY">
+      <soap12:operation soapAction="http://tempuri.org/INSERT_CM_WIP_PROCESS_LINE_HISTORY" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="insert_cc_wip_lot_bc_history">
+      <soap12:operation soapAction="http://tempuri.org/insert_cc_wip_lot_bc_history" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="XXCC_LOT_PC_F">
+      <soap12:operation soapAction="http://tempuri.org/XXCC_LOT_PC_F" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="xxcc_work_num_f">
+      <soap12:operation soapAction="http://tempuri.org/xxcc_work_num_f" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="Service">
+    <wsdl:port name="ServiceSoap" binding="tns:ServiceSoap">
+      <soap:address location="http://10.2.220.68/Webservice/Service.asmx" />
+    </wsdl:port>
+    <wsdl:port name="ServiceSoap12" binding="tns:ServiceSoap12">
+      <soap12:address location="http://10.2.220.68/Webservice/Service.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

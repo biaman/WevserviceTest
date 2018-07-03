@@ -104,7 +104,6 @@
             // 
             // LightSP
             // 
-            this.LightSP.PortName = "COM3";
             this.LightSP.DataReceived += new System.IO.Ports.SerialDataReceivedEventHandler(this.LightSP_DataReceived);
             // 
             // MiscroSP

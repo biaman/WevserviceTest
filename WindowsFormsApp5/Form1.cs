@@ -23,7 +23,8 @@ namespace WindowsFormsApp5
         #region 實例
         Window2cs form2;
         MessageModel mModel;
-        HuaTongWebReference1.WebService1 huaTongWebService;
+        
+        WebReference.Service huaTongWebService;
         //public delegate void ShowEventHandle(object sender, EventArgs e);
         Thread CheckCon;
         //ShowEventHandle showEvent = null;
@@ -36,14 +37,14 @@ namespace WindowsFormsApp5
             Win32.AnimateWindow(this.Handle, 2000, Win32.AW_BLEND);           
             form2 = new Window2cs();
             mModel = MessageModel.instance();
-            huaTongWebService = new HuaTongWebReference1.WebService1();
+            huaTongWebService = new WebReference.Service();
             timer1.Enabled = true;           
         }
         private void CheckConnect()
         {
             try {
                 mModel.Timer1Wait++;
-                huaTongWebService.Connection();
+                huaTongWebService.Discover();
                 mModel.IsConnect = true;                                                
                 mModel.Timer1Wait--;                    
             }

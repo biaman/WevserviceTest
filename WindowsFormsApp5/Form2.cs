@@ -24,7 +24,7 @@ namespace WindowsFormsApp5
         Window2cs form2;
         MessageModel mModel;
         Form1 firForm;
-        HuaTongWebReference1.WebService1 webService;
+        WebReference.Service webService;
         #endregion
         private void Form2_Load(object sender, EventArgs e)
         {
@@ -36,7 +36,7 @@ namespace WindowsFormsApp5
             Win32.AnimateWindow(this.Handle, 2000, Win32.AW_BLEND);
             
             mModel = MessageModel.instance();
-            webService = new HuaTongWebReference1.WebService1();
+            webService = new WebReference.Service();
             
             //Thread t = new Thread(new ThreadStart(initForm2));
             //t.Start();
@@ -53,8 +53,8 @@ namespace WindowsFormsApp5
         public void fun1()
         {
             form1 = new Windows1cs(this);
-            this.Width = 425;
-            this.Height = 327;
+            this.Width = 450;
+            this.Height = 358;
             this.SetBounds((Screen.GetBounds(this).Width / 2) - (this.Width / 2),
             (Screen.GetBounds(this).Height / 2) - (this.Height / 2),
             this.Width, this.Height, BoundsSpecified.Location);
@@ -90,10 +90,10 @@ namespace WindowsFormsApp5
 
         public void SetToolstripValue()
         {
-            toolStripStatusLabel1.Text = mModel.Factory;
-            toolStripStatusLabel2.Text = mModel.LineIds[Convert.ToInt32(mModel.LineId)];
-            toolStripStatusLabel3.Text = mModel.LineNumbers[Convert.ToInt32(mModel.LineNumber)];
-            toolStripStatusLabel4.Text = mModel.ProcessIds[Convert.ToInt32(mModel.ProcessId)];
+            toolStripStatusLabel1.Text = mModel.Factories[Convert.ToInt32(mModel.Factory)]+"厰";
+            toolStripStatusLabel3.Text = "製程名："+mModel.LineIds[Convert.ToInt32(mModel.LineId)];
+            toolStripStatusLabel4.Text = "線別："+mModel.LineNumbers[Convert.ToInt32(mModel.LineNumber)];
+            toolStripStatusLabel2.Text = "製程代號："+mModel.ProcessIds[Convert.ToInt32(mModel.ProcessId)];
             toolStripLabel1.Text = "工號：" + mModel.UserId;
             if (mModel.ProductNum == null || mModel.ProductNum.Trim() == "")
             {

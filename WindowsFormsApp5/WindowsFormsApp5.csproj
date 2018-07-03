@@ -97,7 +97,7 @@
     <Compile Include="MessageModel.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Web References\HuaTongWebReference1\Reference.cs">
+    <Compile Include="Web References\WebReference\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.map</DependentUpon>
@@ -161,11 +161,11 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <None Include="Web References\HuaTongWebReference1\Reference.map">
+    <None Include="Web References\WebReference\Reference.map">
       <Generator>MSDiscoCodeGenerator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
-    <None Include="Web References\HuaTongWebReference1\WebService1.wsdl" />
+    <None Include="Web References\WebReference\Service.wsdl" />
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Connected Services\" />
@@ -174,20 +174,20 @@
     <WebReferences Include="Web References\" />
   </ItemGroup>
   <ItemGroup>
-    <WebReferenceUrl Include="http://127.0.0.1:8008/">
+    <WebReferenceUrl Include="http://10.2.220.68/Webservice/Service.asmx">
       <UrlBehavior>Dynamic</UrlBehavior>
-      <RelPath>Web References\HuaTongWebReference1\</RelPath>
-      <UpdateFromURL>http://127.0.0.1:8008/</UpdateFromURL>
+      <RelPath>Web References\WebReference\</RelPath>
+      <UpdateFromURL>http://10.2.220.68/Webservice/Service.asmx</UpdateFromURL>
       <ServiceLocationURL>
       </ServiceLocationURL>
       <CachedDynamicPropName>
       </CachedDynamicPropName>
       <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
-      <CachedSettingsPropName>WindowsFormsApp5_HuaTongWebReference2_WebService1</CachedSettingsPropName>
+      <CachedSettingsPropName>WindowsFormsApp5_WebReference_Service</CachedSettingsPropName>
     </WebReferenceUrl>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Web References\HuaTongWebReference1\WebService1.disco" />
+    <None Include="Web References\WebReference\Service.disco" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

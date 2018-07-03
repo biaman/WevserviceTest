@@ -26,10 +26,10 @@ namespace WindowsFormsApp5.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.WebServiceUrl)]
-        [global::System.Configuration.DefaultSettingValueAttribute("http://127.0.0.1:8008/WebService1.asmx")]
-        public string WindowsFormsApp5_HuaTongWebReference2_WebService1 {
+        [global::System.Configuration.DefaultSettingValueAttribute("http://10.2.220.68/Webservice/Service.asmx")]
+        public string WindowsFormsApp5_WebReference_Service {
             get {
-                return ((string)(this["WindowsFormsApp5_HuaTongWebReference2_WebService1"]));
+                return ((string)(this["WindowsFormsApp5_WebReference_Service"]));
             }
         }
     }

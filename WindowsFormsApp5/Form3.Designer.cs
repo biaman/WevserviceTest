@@ -136,6 +136,7 @@
             this.Text = "Form3";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Form3_FormClosed);
             this.Load += new System.EventHandler(this.Form3_Load);
+            this.Click += new System.EventHandler(this.Form3_Click);
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -23,7 +23,8 @@ namespace WindowsFormsApp5
             mainForm = form;
         }
         #region 實例
-        HuaTongWebReference1.WebService1 hWebService = null;
+        
+        WebReference.Service hWebService = null;
         Form2 mainForm;
        
         //Thread tProduct;
@@ -99,12 +100,14 @@ namespace WindowsFormsApp5
                         SendToWeb();
                         if (mModel.IsSave == true)
                         {
+                            textBox1.Text = "";
                             textBox4.Text += "網絡中断，數據將保存在本地" + "\r\n";
                             SaveProducts();
                         }
                     }
                     else if (mModel.IsSave == true)
                     {
+                        textBox1.Text = "";
                         mModel.IsConnect = false;
                         textBox4.Text += "網絡中断，數據將保存在本地" + "\r\n";
                         SaveProducts();
@@ -128,7 +131,7 @@ namespace WindowsFormsApp5
 
             try
             {
-                hWebService.Connection();
+                hWebService.Discover();
                 if (!mModel.Isform3Alive)
                 {
                     form3 = new Form3(this);
@@ -180,7 +183,7 @@ namespace WindowsFormsApp5
                 mModel.ProductId2 = mModel.ProductId;
             FileStream fs = new FileStream(path, FileMode.Append, FileAccess.Write);
             StreamWriter textWrite = new StreamWriter(fs, Encoding.UTF8);
-            textWrite.Write("工號："+mModel.UserId+","+ mModel.Factory + "," + mModel.LineIds[Convert.ToInt32(mModel.LineId)] + "," + mModel.LineNumbers[Convert.ToInt32(mModel.LineNumber)] + "線," + mModel.ProcessIds[Convert.ToInt32(mModel.ProcessId)]+"製程");
+            textWrite.Write("工號："+mModel.UserId+","+ mModel.Factories[Convert.ToInt32(mModel.Factory)] + "," + mModel.LineIds[Convert.ToInt32(mModel.LineId)] + "," + mModel.LineNumbers[Convert.ToInt32(mModel.LineNumber)] + "線," + mModel.ProcessIds[Convert.ToInt32(mModel.ProcessId)]+"製程");
             textWrite.Close();
             fs.Close();
             }
@@ -196,7 +199,7 @@ namespace WindowsFormsApp5
         public void SendToWeb()
         {
             try {
-                string s = hWebService.insert_cc_wip_lot_bc_history(mModel.Factory, mModel.ProductId, mModel.ProductCode,mModel.LineIds[Convert.ToInt32(mModel.LineId)],mModel.LineNumbers[Convert.ToInt32(mModel.LineNumber)],mModel.P_LOT_TYPE);
+                string s = hWebService.insert_cc_wip_lot_bc_history(mModel.Factories[Convert.ToInt32(mModel.Factory)], mModel.ProductId, mModel.ProductCode,mModel.LineIds[Convert.ToInt32(mModel.LineId)],mModel.LineNumbers[Convert.ToInt32(mModel.LineNumber)],mModel.P_LOT_TYPE);
                 mModel.IsSave = false;
                 textBox1.Text = s;
                 if (s=="OK")
@@ -312,7 +315,7 @@ namespace WindowsFormsApp5
         }
         private void Window2cs_Load(object sender, EventArgs e)
         {
-            hWebService = new HuaTongWebReference1.WebService1();
+            hWebService = new WebReference.Service();
             mModel = MessageModel.instance();
             mModel.TimerFlag1 = false;
             mModel.TimerFlag2 = false;

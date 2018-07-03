@@ -39,7 +39,8 @@ namespace WindowsFormsApp5
         private int timerWait2;
         private int timerWait3;
         private bool isSave;
-        private string factory = "CF廠";//廠號      
+        private string factory;
+        private string[] factories;//廠號      
         private string[] processIds;//製程   
         private string password;
         private string managepass;
@@ -83,7 +84,7 @@ namespace WindowsFormsApp5
         {
             get
             {
-                _lineIds = inifile.IniReadByte("線別");
+                _lineIds = inifile.IniReadByte("製程名");
                 return _lineIds;
             }          
         }
@@ -213,11 +214,12 @@ namespace WindowsFormsApp5
             }
         }
 
-        public string Factory
+        public string[] Factories
         {
             get
             {
-                return factory;
+                factories = inifile.IniReadByte("廠區");
+                return factories;
             }
 
         }    
@@ -225,7 +227,7 @@ namespace WindowsFormsApp5
         {
             get
             {
-                processIds = inifile.IniReadByte("製程");
+                processIds = inifile.IniReadByte("製程代號");
                 return processIds;
             }
         }
@@ -303,13 +305,13 @@ namespace WindowsFormsApp5
         {
             get
             {
-                lineId = iniFile.IniReadValue("廠區信息", "線別");
+                lineId = iniFile.IniReadValue("廠區信息", "製程名");
                 return lineId;
             }
             set
             {
                 lineId = value;
-                iniFile.WriteString("廠區信息", "線別", lineId);
+                iniFile.WriteString("廠區信息", "製程名", lineId);
             }
         }
 
@@ -331,13 +333,13 @@ namespace WindowsFormsApp5
         {
             get
             {
-                processId = iniFile.IniReadValue("廠區信息", "製程");
+                processId = iniFile.IniReadValue("廠區信息", "製程代號");
                 return processId;
             }
             set
             {
                 processId = value;
-                iniFile.WriteString("廠區信息", "製程", processId);
+                iniFile.WriteString("廠區信息", "製程代號", processId);
             }
         }
 
@@ -351,6 +353,21 @@ namespace WindowsFormsApp5
             set
             {
                 p_LOT_TYPE = value;
+            }
+        }
+
+        public string Factory
+        {
+            get
+            {
+                factory = iniFile.IniReadValue("廠區信息", "廠區");
+                return factory;
+            }
+
+            set
+            {
+                factory = value;
+                iniFile.WriteString("廠區信息", "廠區", factory);
             }
         }
     }

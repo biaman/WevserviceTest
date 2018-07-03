@@ -34,7 +34,7 @@ namespace WindowsFormsApp5
 
         private void InitForm()
         {
-            comboBox1.Items.Add(mModel.Factory);
+            comboBox1.Items.AddRange((object[])mModel.Factories);
             comboBox2.Items.AddRange((object[])mModel.LineIds);
             comboBox3.Items.AddRange((object[])mModel.LineNumbers);
             comboBox4.Items.AddRange((object[])mModel.ProcessIds);
@@ -51,6 +51,7 @@ namespace WindowsFormsApp5
             DialogResult dr = MessageBox.Show("確定修改廠區信息嗎？", "否", messbutton);
             if (dr == DialogResult.OK)
             {
+                mModel.Factory = comboBox1.SelectedIndex.ToString();
                 mModel.LineId = comboBox2.SelectedIndex.ToString() ;
                 mModel.LineNumber = comboBox3.SelectedIndex.ToString();
                 mModel.ProcessId = comboBox4.SelectedIndex.ToString();
