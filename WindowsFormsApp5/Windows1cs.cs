@@ -17,6 +17,7 @@ namespace WindowsFormsApp5
         public Windows1cs()
         {
             InitializeComponent();
+            BindKeyBoardHook();
         }
         public Windows1cs(Form2 f) : this()
         {
@@ -25,6 +26,7 @@ namespace WindowsFormsApp5
         Form2 form2;
         MessageModel mModel = MessageModel.instance();
         WebReference.Service webService = new WebReference.Service();
+        private KeyBoardHookLib _keyBoardHook = null;
         //重连数据保存
         private void button2_Click(object sender, EventArgs e)
         {
@@ -60,6 +62,7 @@ namespace WindowsFormsApp5
                         label8.ForeColor = Color.Green;
                         label8.Text = message;
                         mModel.IsFlag = true;
+                        productIdtxt.Focus();
                     }
                 }
                 catch
@@ -120,6 +123,7 @@ namespace WindowsFormsApp5
         //连接状态改变更新界面
         public void initForm2()
         {
+           
             label4.Text ="廠區：" +mModel.Factories[Convert.ToInt32(mModel.Factory)]+"厰";
             label3.Text = "製程名："+mModel.LineIds[Convert.ToInt32(mModel.LineId)];
             label5.Text = "線別："+mModel.LineNumbers[Convert.ToInt32(mModel.LineNumber)];
@@ -173,37 +177,65 @@ namespace WindowsFormsApp5
 
             }
         }
-
+        
         private void newForm()
         {
             try
             {
-              string ss=  webService.INSERT_CM_WIP_PROCESS_LINE_HISTORY(mModel.Factories[Convert.ToInt32(mModel.Factory)],userIdtxt.Text,productIdtxt.Text,mModel.ProcessIds[Convert.ToInt32(mModel.ProcessId)],mModel.LineIds[Convert.ToInt32(mModel.LineId)],mModel.LineNumbers[Convert.ToInt32(mModel.LineNumber)],mModel.P_LOT_TYPE,"");
-                //MessageBox.Show(mModel.Factories[Convert.ToInt32(mModel.Factory)]+","+userIdtxt.Text+","+productIdtxt.Text + "," + mModel.ProcessIds[Convert.ToInt32(mModel.ProcessId)] + "," + mModel.LineIds[Convert.ToInt32(mModel.LineId)] + "," + mModel.LineNumbers[Convert.ToInt32(mModel.LineNumber)] + "," + mModel.P_LOT_TYPE);
-                if(ss!="OK")
+                if (!mModel.IsConnect)
                 {
-                    MessageBox.Show(ss);
+                    mModel.UserId = userIdtxt.Text;
+                    mModel.ProductId = productIdtxt.Text;
+                    MessageBoxButtons messbutton = MessageBoxButtons.OKCancel;
+                    DialogResult dr = MessageBox.Show("網絡斷開是否進入無網絡讀碼？", "否", messbutton);
+                    if (dr == DialogResult.OK)
+                    {
+                        this.BeginInvoke(new Action(() => { form2.fun(); }));
+                    }
                 }
                 else
                 {
-                    this.BeginInvoke(new Action(() => { form2.fun(); }));
+                    string ss = webService.INSERT_CM_WIP_PROCESS_LINE_HISTORY(mModel.Factories[Convert.ToInt32(mModel.Factory)], userIdtxt.Text, productIdtxt.Text, mModel.ProcessIds[Convert.ToInt32(mModel.ProcessId)], mModel.LineIds[Convert.ToInt32(mModel.LineId)], mModel.LineNumbers[Convert.ToInt32(mModel.LineNumber)], mModel.P_LOT_TYPE, "");
+                    //MessageBox.Show(mModel.Factories[Convert.ToInt32(mModel.Factory)]+","+userIdtxt.Text+","+productIdtxt.Text + "," + mModel.ProcessIds[Convert.ToInt32(mModel.ProcessId)] + "," + mModel.LineIds[Convert.ToInt32(mModel.LineId)] + "," + mModel.LineNumbers[Convert.ToInt32(mModel.LineNumber)] + "," + mModel.P_LOT_TYPE);
+                    if (ss != "OK")
+                    {
+                        MessageBox.Show(ss);
+                    }
+                    else
+                    {
+                        mModel.IsLockKeyboard = true;
+                        BindKeyBoardHook();
+                        this.BeginInvoke(new Action(() => { form2.fun(); }));
+
+                    }
                 }
             }
             catch
             {
                 mModel.IsConnect = false;
+                mModel.UserId = userIdtxt.Text;
+                mModel.ProductId = productIdtxt.Text;
+                MessageBoxButtons messbutton = MessageBoxButtons.OKCancel;
+                DialogResult dr = MessageBox.Show("網絡斷開是否進入無網絡讀碼？", "否", messbutton);
+                if (dr == DialogResult.OK)
+                {
+                    this.BeginInvoke(new Action(() => { form2.fun(); }));
+                }
             }
             finally
             {
-               
+                
             }
 
         }
 
         private void Windows1cs_Load(object sender, EventArgs e)
         {
+           
             mModel.P_LOT_TYPE = "正常板";
+            label10.Text = "";
             initForm2();
+           
         }
 
 
@@ -222,7 +254,8 @@ namespace WindowsFormsApp5
         private void label4_Click(object sender, EventArgs e)
         {
             Form6 form6 = new Form6(this);
-            form6.Show();
+            
+            form6.ShowDialog() ;
         }
 
         private void Windows1cs_Click(object sender, EventArgs e)
@@ -235,6 +268,64 @@ namespace WindowsFormsApp5
             { 
             productIdtxt_Validated(sender, e);
             }
+        }
+        //客户端键盘捕捉事件
+        public void OnKeyPre(KeyBoardHookLib.HookStruct hookStruct, out bool handle)
+        {
+            handle = false;//预设不拦截
+            if (hookStruct.vkCode == 91)//拦截左win键
+            {
+                handle = true;
+            }
+            if (hookStruct.vkCode == 92)//右win
+            {
+                handle = true;
+            }
+            if (hookStruct.vkCode == (int)Keys.Escape && (int)Control.ModifierKeys == (int)Keys.Control)
+            {
+                handle = true;
+            }
+            if (hookStruct.vkCode == (int)Keys.F4 && (int)Control.ModifierKeys == (int)Keys.Alt) ;
+            {
+                handle = true;
+            }
+            if (hookStruct.vkCode == (int)Keys.F1)
+            {
+                handle = true;
+            }
+            if ((int)Control.ModifierKeys == (int)Keys.Control + (int)Keys.Alt + (int)Keys.Delete)
+            {
+                handle = true;
+            }
+            if (hookStruct.vkCode >= (int)Keys.A && hookStruct.vkCode <= (int)Keys.Z)
+            {
+                if (hookStruct.vkCode == (int)Keys.B)
+                    hookStruct.vkCode = (int)Keys.None;
+                handle = true;
+            }
+            Keys key = (Keys)hookStruct.vkCode;
+            //label10.Text = "你按下了：" + (key == Keys.None ? "" : key.ToString());
+            label10.ForeColor = Color.Red;
+            label10.Text = "不可手動輸入，請掃碼輸入";
+        }
+        public void BindKeyBoardHook()
+        {
+            try
+            {
+                _keyBoardHook = new KeyBoardHookLib();
+                _keyBoardHook.InstallHook(this.OnKeyPre);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+        public void UninKeyBoardHook()
+        {
+
+            if (_keyBoardHook != null)
+                this.BeginInvoke(new Action(() => { label10.Text = ""; }));
+                _keyBoardHook.UninstallHook();
         }
     }
 }

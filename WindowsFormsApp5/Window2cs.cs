@@ -199,7 +199,7 @@ namespace WindowsFormsApp5
         public void SendToWeb()
         {
             try {
-                string s = hWebService.insert_cc_wip_lot_bc_history(mModel.Factories[Convert.ToInt32(mModel.Factory)], mModel.ProductId, mModel.ProductCode,mModel.LineIds[Convert.ToInt32(mModel.LineId)],mModel.LineNumbers[Convert.ToInt32(mModel.LineNumber)],mModel.P_LOT_TYPE);
+                string s = hWebService.insert_cc_wip_lot_bc_history(mModel.Factories[Convert.ToInt32(mModel.Factory)], mModel.ProductId, mModel.ProductCode,/* mModel.ProcessIds[Convert.ToInt32(mModel.ProcessId)],*/ mModel.LineIds[Convert.ToInt32(mModel.LineId)], mModel.LineNumbers[Convert.ToInt32(mModel.LineNumber)], mModel.P_LOT_TYPE);
                 mModel.IsSave = false;
                 textBox1.Text = s;
                 if (s=="OK")
@@ -215,7 +215,7 @@ namespace WindowsFormsApp5
                     label7.Text = z + "";
                     textBox4.AppendText(s + "\r\n");
                     LightSP.Write(openByte, 0, openByte.Length);
-                    
+                    button3.Visible = true;
                 }
                 
             }
@@ -289,7 +289,8 @@ namespace WindowsFormsApp5
                     textBox4.Text = "讀碼器斷開連接了" + "\r\n";
                         button1.Visible = true;
                     LightSP.Write(openByte, 0, openByte.Length);
-                    time1Num = 0;
+                        button3.Visible = true;
+                        time1Num = 0;
                     }
                 }
                 
@@ -325,6 +326,7 @@ namespace WindowsFormsApp5
             label4.Text = "0";
             label7.Text = "0";
             mModel.IsSave = false;
+
             string pathtime = DateTime.Now.ToString("yyyy-MM-dd");
             ConnectToSerip();
             if (!Directory.Exists("D:\\Products\\" + pathtime))
@@ -450,6 +452,12 @@ namespace WindowsFormsApp5
             {
                 textBox4.AppendText("該串口COM1被佔用\r\n");
             }
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            LightSP.Write(closeByte, 0, closeByte.Length);
+            button3.Visible = false;
         }
     }
 }

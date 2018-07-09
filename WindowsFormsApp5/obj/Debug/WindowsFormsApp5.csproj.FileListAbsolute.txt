@@ -102,10 +102,7 @@ D:\Study\huatong\WevserviceTest\WindowsFormsApp5\obj\Debug\WindowsFormsApp5.Prop
 D:\Study\huatong\WevserviceTest\WindowsFormsApp5\obj\Debug\WindowsFormsApp5.Window2cs.resources
 D:\Study\huatong\WevserviceTest\WindowsFormsApp5\obj\Debug\WindowsFormsApp5.Windows1cs.resources
 D:\Study\huatong\WevserviceTest\WindowsFormsApp5\obj\Debug\WindowsFormsApp5.csproj.GenerateResource.Cache
-D:\Study\huatong\WevserviceTest\WindowsFormsApp5\obj\Debug\WindowsFormsApp5.Form4.resources
-D:\Study\huatong\WevserviceTest\WindowsFormsApp5\obj\Debug\WindowsFormsApp5.Form5.resources
 D:\Study\huatong\WevserviceTest\WindowsFormsApp5\obj\Debug\WindowsFormsApp5.Form6.resources
-D:\Study\huatong\WevserviceTest\WindowsFormsApp5\obj\Debug\WindowsFormsApp5.Form7.resources
 H:\beifen\華通電子\6-21\WevserviceTest\WindowsFormsApp5\bin\Debug\WindowsFormsApp5.exe.config
 H:\beifen\華通電子\6-21\WevserviceTest\WindowsFormsApp5\obj\Debug\WindowsFormsApp5.exe
 H:\beifen\華通電子\6-21\WevserviceTest\WindowsFormsApp5\obj\Debug\WindowsFormsApp5.pdb
@@ -129,3 +126,6 @@ D:\6-21\WevserviceTest\WindowsFormsApp5\obj\Debug\WindowsFormsApp5.pdb
 H:\beifen\華通電子\6-22\WindowsFormsApp5\bin\Debug\WindowsFormsApp5.exe.config
 H:\beifen\華通電子\6-22\WindowsFormsApp5\obj\Debug\WindowsFormsApp5.exe
 H:\beifen\華通電子\6-22\WindowsFormsApp5\obj\Debug\WindowsFormsApp5.pdb
+D:\Study\huatong\WevserviceTest\WindowsFormsApp5\obj\Debug\WindowsFormsApp5.UserControl1.resources
+D:\Study\huatong\WevserviceTest\WindowsFormsApp5\obj\Debug\WindowsFormsApp5.UserControl2.resources
+D:\Study\huatong\WevserviceTest\WindowsFormsApp5\obj\Debug\WindowsFormsApp5.UserControl3.resources

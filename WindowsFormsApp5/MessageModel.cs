@@ -34,6 +34,7 @@ namespace WindowsFormsApp5
         private bool timerFlag1;
         private bool timerFlag2;
         private bool timerFlag3;
+        private bool isLockKeyboard;
         private int timer1Wait;
         private int timerWait1;
         private int timerWait2;
@@ -368,6 +369,19 @@ namespace WindowsFormsApp5
             {
                 factory = value;
                 iniFile.WriteString("廠區信息", "廠區", factory);
+            }
+        }
+
+        public bool IsLockKeyboard
+        {
+            get
+            {
+                return isLockKeyboard;
+            }
+
+            set
+            {
+                isLockKeyboard = value;
             }
         }
     }
